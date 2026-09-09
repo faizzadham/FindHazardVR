@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1b865ec5c79379747bfc0ea168333414
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 130318
+  packageName: Urban building
+  packageVersion: 1.0
+  assetPath: Assets/UrbanBuilding/Materials/urban_building_wall_brick_mat.mat
+  uploadId: 734901

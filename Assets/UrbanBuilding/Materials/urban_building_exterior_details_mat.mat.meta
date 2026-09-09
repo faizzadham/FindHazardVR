@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 47331d6677aa46646a9b70396b048514
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 130318
+  packageName: Urban building
+  packageVersion: 1.0
+  assetPath: Assets/UrbanBuilding/Materials/urban_building_exterior_details_mat.mat
+  uploadId: 734901

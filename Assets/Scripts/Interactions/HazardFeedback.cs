@@ -6,12 +6,12 @@ using UnityEngine;
 public class HazardFeedback : MonoBehaviour
 {
     [Header("Hazard Configuration")]
-    [Tooltip("Check if this object is a genuine hazard (Green), uncheck if safe (Red)")]
+    [Tooltip("Check if this object is a genuine hazard (Red), uncheck if safe (Green)")]
     public bool isHazard = true;
 
     [Header("Feedback Materials")]
-    public Material hazardFoundMaterial; // Drag Mat_Hazard_Green here
-    public Material nonHazardMaterial;   // Drag Mat_Safe_Red here
+    public Material hazardFoundMaterial; // Drag Mat_Hazard_Red here
+    public Material nonHazardMaterial;   // Drag Mat_Safe_Green here
 
     private MeshRenderer meshRenderer;
     private bool isIdentified = false;
@@ -55,7 +55,7 @@ public class HazardFeedback : MonoBehaviour
             if (hazardFoundMaterial != null)
             {
                 meshRenderer.material = hazardFoundMaterial;
-                Debug.Log($"<color=green>[HazardFeedback] SUCCESS: '{gameObject.name}' changed to GREEN (Hazard Found)</color>");
+                Debug.Log($"<color=red>[HazardFeedback] SUCCESS: '{gameObject.name}' changed to RED (Hazard Found)</color>");
             }
             else
             {
@@ -67,7 +67,7 @@ public class HazardFeedback : MonoBehaviour
             if (nonHazardMaterial != null)
             {
                 meshRenderer.material = nonHazardMaterial;
-                Debug.Log($"<color=red>[HazardFeedback] SUCCESS: '{gameObject.name}' changed to RED (Non-Hazard)</color>");
+                Debug.Log($"<color=green>[HazardFeedback] SUCCESS: '{gameObject.name}' changed to GREEN (Non-Hazard)</color>");
             }
             else
             {
