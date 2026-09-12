@@ -38,41 +38,30 @@ public class HazardFeedback : MonoBehaviour
             return;
         }
 
-        if (meshRenderer == null)
-        {
-            meshRenderer = GetComponentInChildren<MeshRenderer>();
-            if (meshRenderer == null)
-            {
-                Debug.LogError($"[HazardFeedback] Cannot change material: MeshRenderer missing on '{gameObject.name}'.");
-                return;
-            }
-        }
-
         isIdentified = true;
 
         if (isHazard)
         {
-            if (hazardFoundMaterial != null)
+            if (hazardFoundMaterial != null && meshRenderer != null)
             {
                 meshRenderer.material = hazardFoundMaterial;
-                Debug.Log($"<color=red>[HazardFeedback] SUCCESS: '{gameObject.name}' changed to RED (Hazard Found)</color>");
             }
-            else
+
+            // Award +1 point to the HUD scoreboard
+            if (TrainingGameManager.Instance != null)
             {
-                Debug.LogError($"[HazardFeedback] 'Hazard Found Material' slot is EMPTY on '{gameObject.name}' Inspector!");
+                TrainingGameManager.Instance.AddHazardFound();
             }
+
+            Debug.Log($"<color=green>[HazardFeedback] Correct Hazard! +1 Point awarded.</color>");
         }
         else
         {
-            if (nonHazardMaterial != null)
+            if (nonHazardMaterial != null && meshRenderer != null)
             {
                 meshRenderer.material = nonHazardMaterial;
-                Debug.Log($"<color=green>[HazardFeedback] SUCCESS: '{gameObject.name}' changed to GREEN (Non-Hazard)</color>");
             }
-            else
-            {
-                Debug.LogError($"[HazardFeedback] 'Non Hazard Material' slot is EMPTY on '{gameObject.name}' Inspector!");
-            }
+            Debug.Log($"<color=red>[HazardFeedback] Incorrect object tagged.</color>");
         }
     }
 
