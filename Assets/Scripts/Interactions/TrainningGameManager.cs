@@ -91,27 +91,40 @@ public class TrainingGameManager : MonoBehaviour
     }
 
     private void EndTrainingSession()
+{
+    if (!isSessionActive && currentScore < totalHazards && timeRemaining > 0) return;
+    isSessionActive = false;
+
+    float timeTaken = sessionDuration - timeRemaining;
+    int missed = Mathf.Max(0, totalHazards - currentScore);
+
+    Debug.Log($"[TrainingGameManager] Session ended. Score: {currentScore}/{totalHazards}, Time: {timeTaken:F1}s");
+
+    // 1. Hide the live VR HUD
+    if (playerHUDCanvas != null)
     {
-        if (!isSessionActive && currentScore < totalHazards && timeRemaining > 0) return;
-        isSessionActive = false;
-
-        float timeTaken = sessionDuration - timeRemaining;
-        Debug.Log($"[TrainingGameManager] Session ended. Score: {currentScore}/{totalHazards}, Time: {timeTaken:F1}s");
-
-        // Safely hide ONLY the HUD, leaving Main Camera and XR Origin running
-        if (playerHUDCanvas != null)
-        {
-            playerHUDCanvas.SetActive(false);
-        }
-
-        // Trigger Evaluation Results Panel
-        if (evaluationResultUI != null)
-        {
-            evaluationResultUI.ShowResults(currentScore, totalHazards, timeTaken);
-        }
-        else
-        {
-            Debug.LogError("[TrainingGameManager] 'Evaluation Result UI' reference is missing in the Inspector!");
-        }
+        playerHUDCanvas.SetActive(false); //
     }
+
+    // 2. Transmit session metrics directly to the Laravel Admin Backend
+    if (LaravelApiBridge.Instance != null)
+    {
+        LaravelApiBridge.Instance.SendSessionResult(
+            score: currentScore * 10,
+            found: currentScore,
+            missed: missed,
+            timeTaken: timeTaken
+            );
+    }
+    else
+    {
+        Debug.LogWarning("[TrainingGameManager] LaravelApiBridge instance not found in scene!");
+    }
+
+    // 3. Display the In-VR Evaluation Results Screen
+    if (evaluationResultUI != null)
+    {
+        evaluationResultUI.ShowResults(currentScore, totalHazards, timeTaken); //
+    }
+}
 }

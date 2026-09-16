@@ -47,6 +47,9 @@ public class SceneTransitionManager : MonoBehaviour
             return;
         }
 
+        PlayerPrefs.SetString("CurrentTrainee", traineeName); //[cite: 1]
+        PlayerPrefs.Save(); //[cite: 1]
+
         // Store the username across scenes
         PlayerPrefs.SetString("CurrentTrainee", traineeName);
         PlayerPrefs.Save();
