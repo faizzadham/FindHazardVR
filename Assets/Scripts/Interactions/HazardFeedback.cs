@@ -1,35 +1,20 @@
 using UnityEngine;
 
-/// <summary>
-/// Changes the visual feedback (color/material) when clicked by an XR Interactor.
-/// </summary>
 public class HazardFeedback : MonoBehaviour
 {
     [Header("Hazard Configuration")]
-    [Tooltip("Check if this object is a genuine hazard (Red), uncheck if safe (Green)")]
-    public bool isHazard = true;
+    [Tooltip("Check if this object is an actual warehouse hazard. Uncheck for safe distractors.")]
+    public bool isHazard = false;
 
     [Header("Feedback Materials")]
-    public Material hazardFoundMaterial; // Drag Mat_Hazard_Red here
-    public Material nonHazardMaterial;   // Drag Mat_Safe_Green here
+    [Tooltip("Material applied when a hazard is identified (Red)")]
+    public Material hazardFoundMaterial;
 
-    private MeshRenderer meshRenderer;
+    [Tooltip("Material applied when a non-hazard is clicked (Green)")]
+    public Material nonHazardMaterial;
+
     private bool isIdentified = false;
 
-    private void Awake()
-    {
-        // Finds the MeshRenderer on this GameObject OR any child object (e.g., Visuals)
-        meshRenderer = GetComponentInChildren<MeshRenderer>();
-
-        if (meshRenderer == null)
-        {
-            Debug.LogError($"[HazardFeedback] No MeshRenderer found on '{gameObject.name}' or its children!");
-        }
-    }
-
-    /// <summary>
-    /// Triggered by XR Interactable Select / Activate events.
-    /// </summary>
     public void OnObjectClicked()
     {
         if (isIdentified)
@@ -42,38 +27,44 @@ public class HazardFeedback : MonoBehaviour
 
         if (isHazard)
         {
-            if (hazardFoundMaterial != null && meshRenderer != null)
-            {
-                meshRenderer.material = hazardFoundMaterial;
-            }
+            // Apply Red material to ALL sub-material slots
+            ApplyMaterialToAll(hazardFoundMaterial);
 
-            // Award +1 point to the HUD scoreboard
             if (TrainingGameManager.Instance != null)
             {
                 TrainingGameManager.Instance.AddHazardFound();
             }
 
-            Debug.Log($"<color=green>[HazardFeedback] Correct Hazard! +1 Point awarded.</color>");
+            Debug.Log($"<color=red>[HazardFeedback] Hazard Tagged (Red)! +1 Point awarded.</color>");
         }
         else
         {
-            if (nonHazardMaterial != null && meshRenderer != null)
-            {
-                meshRenderer.material = nonHazardMaterial;
-            }
-            Debug.Log($"<color=red>[HazardFeedback] Incorrect object tagged.</color>");
+            // Apply Green material to ALL sub-material slots
+            ApplyMaterialToAll(nonHazardMaterial);
+
+            Debug.Log($"<color=green>[HazardFeedback] Safe Non-Hazard Tagged (Green).</color>");
         }
     }
 
-    /// <summary>
-    /// Helper to reset state when restarting testing.
-    /// </summary>
-    public void ResetFeedback(Material defaultMaterial)
+    private void ApplyMaterialToAll(Material targetMaterial)
     {
-        isIdentified = false;
-        if (meshRenderer != null && defaultMaterial != null)
+        if (targetMaterial == null) return;
+
+        // Grab all MeshRenderers on this object and any children
+        MeshRenderer[] renderers = GetComponentsInChildren<MeshRenderer>();
+
+        foreach (MeshRenderer rend in renderers)
         {
-            meshRenderer.material = defaultMaterial;
+            // Create an array matching the exact number of sub-material slots
+            Material[] newMaterials = new Material[rend.sharedMaterials.Length];
+
+            for (int i = 0; i < newMaterials.Length; i++)
+            {
+                newMaterials[i] = targetMaterial;
+            }
+
+            // Assign the entire array back to the renderer
+            rend.materials = newMaterials;
         }
     }
 }
