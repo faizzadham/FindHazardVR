@@ -1,50 +1,82 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FadeScreen : MonoBehaviour
 {
+    public static FadeScreen Instance { get; private set; }
+
+    [Header("Fade Configuration")]
+    [Tooltip("Automatically fade from black to clear when the scene boots.")]
     public bool fadeOnStart = true;
-    public float fadeDuration = 2;
-    public Color fadecolor;
-    private Renderer rend;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public float fadeDuration = 1.0f;
+
+    [Header("UI Reference")]
+    [Tooltip("The CanvasGroup on your FadeCanvas.")]
+    public CanvasGroup canvasGroup;
+
+    private void Awake()
     {
-        rend = GetComponent<Renderer>();
-        if (fadeOnStart)
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+
+        if (canvasGroup == null)
+        {
+            canvasGroup = GetComponent<CanvasGroup>();
+        }
+    }
+
+    private void Start()
+    {
+        if (fadeOnStart && canvasGroup != null)
+        {
+            // Start solid black and transition smoothly to clear
             FadeIn();
+        }
     }
 
     public void FadeIn()
     {
-        Fade(1, 0);
+        StartCoroutine(FadeRoutine(1f, 0f));
     }
 
     public void FadeOut()
     {
-        Fade(0, 1);
-    }
-   public void Fade(float alphaIn, float alphaOut)
-    {
-        StartCoroutine(FadeRoutine(alphaIn, alphaOut));
+        StartCoroutine(FadeRoutine(0f, 1f));
     }
 
-    public IEnumerator FadeRoutine(float alphaIn, float alphaOut)
+    public void FadeToScene(string sceneName)
     {
-        float timer = 0;
-        while(timer <= fadeDuration)
+        StartCoroutine(FadeAndLoadRoutine(sceneName));
+    }
+
+    private IEnumerator FadeRoutine(float startAlpha, float targetAlpha)
+    {
+        if (canvasGroup == null) yield break;
+
+        float elapsed = 0f;
+        canvasGroup.alpha = startAlpha;
+
+        while (elapsed < fadeDuration)
         {
-            Color newColor = fadecolor;
-            newColor.a = Mathf.Lerp(alphaIn,alphaOut,timer/fadeDuration);
-
-            rend.material.SetColor("_Color", newColor);
-
-            timer += Time.deltaTime;
+            elapsed += Time.deltaTime;
+            canvasGroup.alpha = Mathf.Lerp(startAlpha, targetAlpha, elapsed / fadeDuration);
             yield return null;
         }
 
-        Color newColor2 = fadecolor;
-        newColor2.a = alphaOut;
-        rend.material.SetColor("_Color", newColor2);
+        canvasGroup.alpha = targetAlpha;
+    }
+
+    private IEnumerator FadeAndLoadRoutine(string sceneName)
+    {
+        // 1. Fade to solid black
+        yield return StartCoroutine(FadeRoutine(0f, 1f));
+
+        // 2. Load the target scene cleanly
+        SceneManager.LoadScene(sceneName);
     }
 }
