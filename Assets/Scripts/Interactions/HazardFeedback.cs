@@ -13,7 +13,8 @@ public class HazardFeedback : MonoBehaviour
     [Tooltip("Material applied when a non-hazard is clicked (Green)")]
     public Material nonHazardMaterial;
 
-    private bool isIdentified = false;
+    [HideInInspector]
+    public bool isIdentified = false; // Must be public so InteractableHoverGlow can check it
 
     public void OnObjectClicked()
     {
@@ -25,9 +26,15 @@ public class HazardFeedback : MonoBehaviour
 
         isIdentified = true;
 
+        // Permanently lock hover glow so hover-exit won't erase the Red/Green material
+        InteractableHoverGlow hoverGlow = GetComponent<InteractableHoverGlow>();
+        if (hoverGlow != null)
+        {
+            hoverGlow.LockFeedback();
+        }
+
         if (isHazard)
         {
-            // Apply Red material to ALL sub-material slots
             ApplyMaterialToAll(hazardFoundMaterial);
 
             if (TrainingGameManager.Instance != null)
@@ -39,9 +46,7 @@ public class HazardFeedback : MonoBehaviour
         }
         else
         {
-            // Apply Green material to ALL sub-material slots
             ApplyMaterialToAll(nonHazardMaterial);
-
             Debug.Log($"<color=green>[HazardFeedback] Safe Non-Hazard Tagged (Green).</color>");
         }
     }
@@ -50,20 +55,15 @@ public class HazardFeedback : MonoBehaviour
     {
         if (targetMaterial == null) return;
 
-        // Grab all MeshRenderers on this object and any children
         MeshRenderer[] renderers = GetComponentsInChildren<MeshRenderer>();
 
         foreach (MeshRenderer rend in renderers)
         {
-            // Create an array matching the exact number of sub-material slots
             Material[] newMaterials = new Material[rend.sharedMaterials.Length];
-
             for (int i = 0; i < newMaterials.Length; i++)
             {
                 newMaterials[i] = targetMaterial;
             }
-
-            // Assign the entire array back to the renderer
             rend.materials = newMaterials;
         }
     }
