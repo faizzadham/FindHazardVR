@@ -13,8 +13,20 @@ public class HazardFeedback : MonoBehaviour
     [Tooltip("Material applied when a non-hazard is clicked (Green)")]
     public Material nonHazardMaterial;
 
+    [Header("Feedback Messages")]
+    [Tooltip("Message displayed on HUD and console when a correct hazard is identified")]
+    public string hazardMessage = "HAZARD IDENTIFIED (+1)";
+
+    [Tooltip("Message displayed on HUD and console when a safe distractor is clicked")]
+    public string nonHazardMessage = "SAFE OBJECT — No Hazard Found";
+
+    [Header("Optional Audio Feedback")]
+    public AudioSource audioSource;
+    public AudioClip hazardSound;
+    public AudioClip nonHazardSound;
+
     [HideInInspector]
-    public bool isIdentified = false; // Must be public so InteractableHoverGlow can check it
+    public bool isIdentified = false; // Kept public so InteractableHoverGlow can check it
 
     public void OnObjectClicked()
     {
@@ -26,31 +38,49 @@ public class HazardFeedback : MonoBehaviour
 
         isIdentified = true;
 
-        // Permanently lock hover glow so hover-exit won't erase the Red/Green material
-        InteractableHoverGlow hoverGlow = GetComponent<InteractableHoverGlow>();
-        if (hoverGlow != null)
-        {
-            hoverGlow.LockFeedback();
-        }
+        // 1. Permanently lock hover glow/outlines so moving the laser away won't erase the colors
+        LockHoverEffects();
 
+        // 2. Process feedback based on hazard status
         if (isHazard)
         {
+            // Apply RED material to all sub-material slots
             ApplyMaterialToAll(hazardFoundMaterial);
 
+            // Play audio confirmation
+            PlaySound(hazardSound);
+
+            // Award +1 score in GameManager
             if (TrainingGameManager.Instance != null)
             {
                 TrainingGameManager.Instance.AddHazardFound();
             }
 
-            Debug.Log($"<color=red>[HazardFeedback] Hazard Tagged (Red)! +1 Point awarded.</color>");
+            // Display on HUD banner (if HUDNotificationManager is present)
+            HUDNotificationManager.Instance?.ShowNotification(hazardMessage, new Color(0.9f, 0.2f, 0.2f));
+
+            // Log detailed telemetry message to Unity Console
+            Debug.Log($"<color=#E74C3C>[HazardFeedback] {hazardMessage} | Object: '{gameObject.name}'</color>");
         }
         else
         {
+            // Apply GREEN material to all sub-material slots
             ApplyMaterialToAll(nonHazardMaterial);
-            Debug.Log($"<color=green>[HazardFeedback] Safe Non-Hazard Tagged (Green).</color>");
+
+            // Play safe click audio
+            PlaySound(nonHazardSound);
+
+            // Display on HUD banner (if HUDNotificationManager is present)
+            HUDNotificationManager.Instance?.ShowNotification(nonHazardMessage, new Color(0.18f, 0.8f, 0.44f));
+
+            // Log telemetry message to Unity Console
+            Debug.Log($"<color=#2ECC71>[HazardFeedback] {nonHazardMessage} | Object: '{gameObject.name}'</color>");
         }
     }
 
+    /// <summary>
+    /// Replaces every sub-material slot across this object and all child meshes
+    /// </summary>
     private void ApplyMaterialToAll(Material targetMaterial)
     {
         if (targetMaterial == null) return;
@@ -65,6 +95,38 @@ public class HazardFeedback : MonoBehaviour
                 newMaterials[i] = targetMaterial;
             }
             rend.materials = newMaterials;
+        }
+    }
+
+    /// <summary>
+    /// Disables hover outline scripts so the highlight aura does not overwrite the Red/Green material
+    /// </summary>
+    private void LockHoverEffects()
+    {
+        InteractableHoverGlow hoverGlow = GetComponent<InteractableHoverGlow>();
+        if (hoverGlow != null)
+        {
+            hoverGlow.LockFeedback();
+        }
+
+        Outline outline = GetComponentInChildren<Outline>();
+        if (outline != null)
+        {
+            outline.enabled = false;
+        }
+    }
+
+    private void PlaySound(AudioClip clip)
+    {
+        if (clip == null) return;
+
+        if (audioSource != null)
+        {
+            audioSource.PlayOneShot(clip);
+        }
+        else
+        {
+            AudioSource.PlayClipAtPoint(clip, transform.position);
         }
     }
 }
