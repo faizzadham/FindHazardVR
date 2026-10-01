@@ -1,108 +1,107 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using TMPro;
 
 public class EvaluationResultUI : MonoBehaviour
 {
-    [Header("UI Root")]
-    [Tooltip("The parent GameObject of the entire Result Summary Canvas/Panel")]
-    public GameObject resultsRootPanel;
+    [Header("Panel Root")]
+    [Tooltip("Drag ResultSummaryRoot here")]
+    public GameObject resultSummaryRoot;
 
-    [Header("Left Card References")]
+    [Header("UI Text Displays")]
     public TextMeshProUGUI percentageText;
-    public TextMeshProUGUI slangTitleText;
-    public TextMeshProUGUI feedbackDescText;
-    public Button exitButton;
-    public Button replayButton;
-
-    [Header("Right Column References")]
-    public TextMeshProUGUI hazardFoundText;
-    public TextMeshProUGUI missedHazardText;
+    public TextMeshProUGUI badgeTitleText;
+    public TextMeshProUGUI badgeSubtitleText;
+    public TextMeshProUGUI hazardsFoundText;
+    public TextMeshProUGUI missedHazardsText;
     public TextMeshProUGUI timeTakenText;
 
+    [Header("Audio Feedback")]
+    public AudioSource audioSource;
+    public AudioClip perfectScoreSound;
+    public AudioClip standardFinishSound;
+
     [Header("Scene Navigation")]
-    public string startingPointSceneName = "StartingPoint";
+    public string mainMenuSceneName = "StartingPoint";
 
-    private void Awake()
+    public void ShowResults(int found, int total, float timeTaken)
     {
-        // Ensure panel starts hidden during gameplay
-        if (resultsRootPanel != null)
-            resultsRootPanel.SetActive(false);
+        Debug.Log($"<color=cyan>[EvaluationResultUI] Displaying results: {found}/{total}</color>");
 
-        // Assign button click listeners
-        if (exitButton != null)
-            exitButton.onClick.AddListener(OnExitClicked);
+        // 1. Ensure the parent canvas GameObject is active
+        gameObject.SetActive(true);
 
-        if (replayButton != null)
-            replayButton.onClick.AddListener(OnReplayClicked);
-    }
-
-    public void ShowResults(int hazardsFound, int totalHazards, float timeTakenSeconds)
-    {
-        if (resultsRootPanel != null)
-            resultsRootPanel.SetActive(true);
-
-        // Calculations
-        int missed = Mathf.Max(0, totalHazards - hazardsFound);
-        int percentage = totalHazards > 0 ? Mathf.RoundToInt(((float)hazardsFound / totalHazards) * 100f) : 0;
-
-        // Format Time (mm:ss)
-        int minutes = Mathf.FloorToInt(timeTakenSeconds / 60);
-        int seconds = Mathf.FloorToInt(timeTakenSeconds % 60);
-        string formattedTime = string.Format("{0}:{1:00}", minutes, seconds);
-
-        // Populate Right Column
-        if (hazardFoundText != null)
-            hazardFoundText.text = $"{hazardsFound}/{totalHazards}";
-
-        if (missedHazardText != null)
-            missedHazardText.text = missed.ToString();
-
-        if (timeTakenText != null)
-            timeTakenText.text = formattedTime;
-
-        // Populate Left Column
-        if (percentageText != null)
-            percentageText.text = $"{percentage}%";
-
-        SetSlangStatement(percentage, hazardsFound, totalHazards);
-    }
-
-    private void SetSlangStatement(int percentage, int found, int total)
-    {
-        if (percentage >= 100)
+        // 2. Turn ON ResultSummaryRoot so the card becomes visible
+        if (resultSummaryRoot != null)
         {
-            slangTitleText.text = "Locked In";
-            feedbackDescText.text = "Absolute W. Zero violations bypassed your radar. You're the safety GOAT.";
-        }
-        else if (percentage >= 80)
-        {
-            slangTitleText.text = "Great";
-            feedbackDescText.text = "You're definitely cooking! You scored higher than 80% of trainees on this floor.";
-        }
-        else if (percentage >= 50)
-        {
-            slangTitleText.text = "Valid Effort";
-            feedbackDescText.text = "Not bad, but a few hazards caught you lacking. Run it back to stay sharp.";
+            resultSummaryRoot.SetActive(true);
         }
         else
         {
-            slangTitleText.text = "Cooked";
-            feedbackDescText.text = "Major skill issue. Safety hazards running wild on your shift. Hit replay immediately.";
+            // Fallback: auto-find and activate child named ResultSummaryRoot
+            Transform child = transform.Find("ResultSummaryRoot");
+            if (child != null) child.gameObject.SetActive(true);
+        }
+
+        // 3. Score calculation
+        float percentage = total > 0 ? ((float)found / total) * 100f : 0f;
+        int missed = Mathf.Max(0, total - found);
+
+        // 4. Update UI text displays
+        if (percentageText != null) percentageText.text = $"{Mathf.RoundToInt(percentage)}%";
+        if (hazardsFoundText != null) hazardsFoundText.text = $"{found}/{total}";
+        if (missedHazardsText != null) missedHazardsText.text = missed.ToString();
+
+        if (timeTakenText != null)
+        {
+            int minutes = Mathf.FloorToInt(timeTaken / 60);
+            int seconds = Mathf.FloorToInt(timeTaken % 60);
+            timeTakenText.text = string.Format("{0}:{1:00}", minutes, seconds);
+        }
+
+        // 5. Evaluation title and sound trigger
+        if (found >= total && total > 0)
+        {
+            if (badgeTitleText != null) badgeTitleText.text = "Locked In";
+            if (badgeSubtitleText != null) badgeSubtitleText.text = "Flawless inspection! All warehouse hazards identified.";
+            PlayAudio(perfectScoreSound);
+        }
+        else if (percentage >= 80f)
+        {
+            if (badgeTitleText != null) badgeTitleText.text = "Great";
+            if (badgeSubtitleText != null) badgeSubtitleText.text = $"You scored higher than {Mathf.RoundToInt(percentage)}% of trainees.";
+            PlayAudio(standardFinishSound);
+        }
+        else
+        {
+            if (badgeTitleText != null) badgeTitleText.text = "Needs Review";
+            if (badgeSubtitleText != null) badgeSubtitleText.text = "Significant hazards were missed. Retraining recommended.";
+            PlayAudio(standardFinishSound);
+        }
+    }
+
+    private void PlayAudio(AudioClip clip)
+    {
+        if (clip == null) return;
+
+        if (audioSource != null)
+        {
+            audioSource.PlayOneShot(clip);
+        }
+        else
+        {
+            Vector3 soundPos = Camera.main != null ? Camera.main.transform.position : transform.position;
+            AudioSource.PlayClipAtPoint(clip, soundPos);
         }
     }
 
     public void OnReplayClicked()
     {
-        // Reload current warehouse scene to reset the session
-        Scene activeScene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(activeScene.name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void OnExitClicked()
     {
-        // Return to username registration/starting point scene
-        SceneManager.LoadScene(startingPointSceneName);
+        SceneManager.LoadScene(mainMenuSceneName);
     }
 }
