@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -17,29 +18,17 @@ public class TrainingGameManager : MonoBehaviour
     public int countdownSeconds = 5;
 
     [Header("Countdown Visuals")]
-    [Tooltip("Color applied to the START! text")]
-    public Color startTextColor = new Color(0.18f, 0.85f, 0.35f, 1f); // Vibrant safety green
+    public Color startTextColor = new Color(0.18f, 0.85f, 0.35f, 1f);
 
     [Header("Countdown Audio Synchronization")]
-    [Tooltip("AudioSource component used to play countdown audio")]
     public AudioSource countdownAudioSource;
-
-    [Tooltip("Drag tickkk.WAV here (5.068s duration)")]
     public AudioClip countdownAudioTrack;
-
-    [Tooltip("Drag Start.wav here (plays right when START! text appears)")]
     public AudioClip countdownStartClip;
-
-    [Tooltip("Interval between ticks: 5.068s / 5 beats ≈ 1.014s")]
     public float beatInterval = 1.014f;
-
-    [Tooltip("Pre-roll offset if tickkk.WAV has initial silence before beat 1")]
     public float initialDelay = 0.0f;
-
-    [Tooltip("Fallback display duration if no start audio clip is assigned")]
     public float defaultStartDisplayDuration = 1.25f;
 
-    [Header("Player Restrictions During Countdown")]
+    [Header("Player Restrictions")]
     public GameObject locomotionSystem;
     public GameObject[] rayInteractors;
 
@@ -48,7 +37,11 @@ public class TrainingGameManager : MonoBehaviour
 
     [Header("Session Settings")]
     public float sessionDuration = 180f;
-    public int totalHazards = 8;
+    public int totalHazards = 10;
+
+    // Lists tracking found and all scene hazards
+    private List<string> allSceneHazards = new List<string>();
+    private List<string> foundHazards = new List<string>();
 
     private bool isSessionActive = false;
     private float timeRemaining;
@@ -64,7 +57,6 @@ public class TrainingGameManager : MonoBehaviour
         }
         Instance = this;
 
-        // Cache the default yellow color of your countdown digits
         if (countdownText != null)
         {
             originalCountdownColor = countdownText.color;
@@ -74,6 +66,17 @@ public class TrainingGameManager : MonoBehaviour
         {
             countdownAudioSource = GetComponent<AudioSource>();
         }
+
+        // Auto-register all active hazards in the warehouse
+        HazardFeedback[] hazards = FindObjectsByType<HazardFeedback>(FindObjectsSortMode.None);
+        foreach (var h in hazards)
+        {
+            if (h.isHazard)
+            {
+                allSceneHazards.Add(string.IsNullOrEmpty(h.hazardDisplayName) ? h.gameObject.name : h.hazardDisplayName);
+            }
+        }
+        totalHazards = allSceneHazards.Count;
     }
 
     private void Start()
@@ -101,45 +104,27 @@ public class TrainingGameManager : MonoBehaviour
     private IEnumerator StartCountdownRoutine()
     {
         isSessionActive = false;
-
-        // 1. Lock locomotion and ray interactors while counting down
         SetPlayerInputState(false);
 
-        // 2. Setup initial UI states & ensure original yellow color
         if (countdownRoot != null) countdownRoot.SetActive(true);
         if (playerHUDCanvas != null) playerHUDCanvas.SetActive(true);
+        if (countdownText != null) countdownText.color = originalCountdownColor;
 
-        if (countdownText != null)
-        {
-            countdownText.color = originalCountdownColor;
-        }
-
-        // 3. Play tickkk.WAV track once from the beginning (5.068s)
         if (countdownAudioSource != null && countdownAudioTrack != null)
         {
             countdownAudioSource.PlayOneShot(countdownAudioTrack);
         }
 
-        if (initialDelay > 0f)
-        {
-            yield return new WaitForSeconds(initialDelay);
-        }
+        if (initialDelay > 0f) yield return new WaitForSeconds(initialDelay);
 
         int currentCount = countdownSeconds;
-
-        // 4. Update the numbers in sync with the beat interval (5, 4, 3, 2, 1 in Yellow)
         while (currentCount > 0)
         {
-            if (countdownText != null)
-            {
-                countdownText.text = currentCount.ToString();
-            }
-
+            if (countdownText != null) countdownText.text = currentCount.ToString();
             yield return new WaitForSeconds(beatInterval);
             currentCount--;
         }
 
-        // 5. On the 6th beat: Turn text GREEN and display START!
         if (countdownText != null)
         {
             countdownText.color = startTextColor;
@@ -147,8 +132,6 @@ public class TrainingGameManager : MonoBehaviour
         }
 
         float displayDuration = defaultStartDisplayDuration;
-
-        // 6. Play Start.wav audio
         if (countdownAudioSource != null && countdownStartClip != null)
         {
             countdownAudioSource.PlayOneShot(countdownStartClip);
@@ -157,16 +140,8 @@ public class TrainingGameManager : MonoBehaviour
 
         yield return new WaitForSeconds(displayDuration);
 
-        // 7. Hide countdown screen, reset color for replays, and unlock player
-        if (countdownRoot != null)
-        {
-            countdownRoot.SetActive(false);
-        }
-
-        if (countdownText != null)
-        {
-            countdownText.color = originalCountdownColor;
-        }
+        if (countdownRoot != null) countdownRoot.SetActive(false);
+        if (countdownText != null) countdownText.color = originalCountdownColor;
 
         SetPlayerInputState(true);
         BeginSession();
@@ -177,24 +152,24 @@ public class TrainingGameManager : MonoBehaviour
         isSessionActive = true;
         timeRemaining = sessionDuration;
         currentScore = 0;
+        foundHazards.Clear();
         UpdateHUDDisplays();
     }
 
-    /// <summary>
-    /// Called by HazardFeedback.cs whenever a trainee identifies a hazard
-    /// </summary>
-    public void AddHazardFound()
+    public void AddHazardFound(string hazardName)
     {
         if (!isSessionActive) return;
 
-        currentScore++;
-        UpdateHUDDisplays();
-
-        Debug.Log($"<color=green>[TrainingGameManager] Hazard Found! Current score: {currentScore}/{totalHazards}</color>");
-
-        if (currentScore >= totalHazards)
+        if (!foundHazards.Contains(hazardName))
         {
-            EndTrainingSession();
+            foundHazards.Add(hazardName);
+            currentScore = foundHazards.Count;
+            UpdateHUDDisplays();
+
+            if (currentScore >= totalHazards)
+            {
+                EndTrainingSession();
+            }
         }
     }
 
@@ -204,52 +179,40 @@ public class TrainingGameManager : MonoBehaviour
         isSessionActive = false;
 
         float timeTaken = sessionDuration - timeRemaining;
-        int missed = Mathf.Max(0, totalHazards - currentScore);
 
-        Debug.Log($"<color=yellow>[TrainingGameManager] Session Finished! Found: {currentScore}/{totalHazards}, Missed: {missed}, Time: {timeTaken:F1}s</color>");
-
-        // 1. Hide active in-game HUD
-        if (playerHUDCanvas != null)
+        // Compute missed hazards list
+        List<string> missedHazards = new List<string>();
+        foreach (string h in allSceneHazards)
         {
-            playerHUDCanvas.SetActive(false);
+            if (!foundHazards.Contains(h))
+            {
+                missedHazards.Add(h);
+            }
         }
 
-        // 2. Display the In-VR Evaluation Results Screen
-        if (evaluationResultUI != null)
-        {
-            evaluationResultUI.ShowResults(currentScore, totalHazards, timeTaken);
-        }
+        if (playerHUDCanvas != null) playerHUDCanvas.SetActive(false);
+        if (evaluationResultUI != null) evaluationResultUI.ShowResults(currentScore, totalHazards, timeTaken);
 
-        // 3. Optional: Transmit to Laravel API Bridge if present
+        // Send results with found and missed hazard lists to Laravel
         LaravelApiBridge bridge = GetComponent<LaravelApiBridge>();
         if (bridge != null)
         {
-            bridge.SendSessionResult(currentScore * 10, currentScore, missed, timeTaken);
+            bridge.SendSessionResult(currentScore * 10, currentScore, missedHazards.Count, timeTaken, foundHazards, missedHazards);
         }
     }
 
     private void SetPlayerInputState(bool isEnabled)
     {
-        if (locomotionSystem != null)
-        {
-            locomotionSystem.SetActive(isEnabled);
-        }
-
+        if (locomotionSystem != null) locomotionSystem.SetActive(isEnabled);
         if (rayInteractors != null)
         {
-            foreach (GameObject interactor in rayInteractors)
-            {
-                if (interactor != null) interactor.SetActive(isEnabled);
-            }
+            foreach (var r in rayInteractors) if (r != null) r.SetActive(isEnabled);
         }
     }
 
     private void UpdateHUDDisplays()
     {
-        if (scoreText != null)
-        {
-            scoreText.text = $"{currentScore}/{totalHazards}";
-        }
+        if (scoreText != null) scoreText.text = $"{currentScore}/{totalHazards}";
         UpdateTimerDisplay();
     }
 

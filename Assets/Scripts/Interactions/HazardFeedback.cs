@@ -9,6 +9,9 @@ public class HazardFeedback : MonoBehaviour
     [Tooltip("Check if this object is an actual warehouse hazard. Uncheck for safe distractors.")]
     public bool isHazard = false;
 
+    [Tooltip("Human-readable hazard name displayed in the Laravel Admin Dashboard (e.g., 'Fluid & Oil Leak Slip Hazard'). Defaults to GameObject name if left blank.")]
+    public string hazardDisplayName = "";
+
     [Header("Feedback Materials")]
     [Tooltip("Material applied when a hazard is identified (Red)")]
     public Material hazardFoundMaterial;
@@ -44,6 +47,12 @@ public class HazardFeedback : MonoBehaviour
         {
             audioSource = GetComponent<AudioSource>();
         }
+
+        // Auto-fallback: if hazardDisplayName is not entered in Inspector, use GameObject name
+        if (string.IsNullOrWhiteSpace(hazardDisplayName))
+        {
+            hazardDisplayName = gameObject.name;
+        }
     }
 
     private void OnEnable()
@@ -51,6 +60,8 @@ public class HazardFeedback : MonoBehaviour
         if (interactable != null)
         {
             interactable.firstHoverEntered.AddListener(OnHoverEntered);
+            // Automatically listen to trigger activation so you don't have to manually wire every single object in Inspector
+            interactable.activated.AddListener(OnActivated);
         }
     }
 
@@ -59,6 +70,7 @@ public class HazardFeedback : MonoBehaviour
         if (interactable != null)
         {
             interactable.firstHoverEntered.RemoveListener(OnHoverEntered);
+            interactable.activated.RemoveListener(OnActivated);
         }
     }
 
@@ -70,11 +82,22 @@ public class HazardFeedback : MonoBehaviour
         PlaySound(hoverSound, hoverVolume);
     }
 
+    private void OnActivated(ActivateEventArgs args)
+    {
+        OnObjectClicked();
+    }
+
+    // Overload allowing direct mapping from XRI Inspector UnityEvents (Activated)
+    public void OnObjectClicked(ActivateEventArgs args)
+    {
+        OnObjectClicked();
+    }
+
     public void OnObjectClicked()
     {
         if (isIdentified)
         {
-            Debug.Log($"[HazardFeedback] '{gameObject.name}' was already clicked.");
+            Debug.Log($"[HazardFeedback] '{hazardDisplayName}' was already clicked.");
             return;
         }
 
@@ -89,13 +112,14 @@ public class HazardFeedback : MonoBehaviour
             ApplyMaterialToAll(hazardFoundMaterial);
             PlaySound(hazardSound, clickVolume);
 
+            // Pass the exact hazard name to TrainingGameManager for the Laravel Admin Dashboard
             if (TrainingGameManager.Instance != null)
             {
-                TrainingGameManager.Instance.AddHazardFound();
+                TrainingGameManager.Instance.AddHazardFound(hazardDisplayName);
             }
 
             HUDNotificationManager.Instance?.ShowNotification(hazardMessage, new Color(0.95f, 0.25f, 0.25f));
-            Debug.Log($"<color=#E74C3C>[HazardFeedback] {hazardMessage} | Object: '{gameObject.name}'</color>");
+            Debug.Log($"<color=#E74C3C>[HazardFeedback] {hazardMessage} | Identified: '{hazardDisplayName}'</color>");
         }
         else
         {
@@ -103,7 +127,7 @@ public class HazardFeedback : MonoBehaviour
             PlaySound(nonHazardSound, clickVolume);
 
             HUDNotificationManager.Instance?.ShowNotification(nonHazardMessage, new Color(0.18f, 0.85f, 0.45f));
-            Debug.Log($"<color=#2ECC71>[HazardFeedback] {nonHazardMessage} | Object: '{gameObject.name}'</color>");
+            Debug.Log($"<color=#2ECC71>[HazardFeedback] {nonHazardMessage} | Object: '{hazardDisplayName}'</color>");
         }
     }
 
@@ -148,7 +172,6 @@ public class HazardFeedback : MonoBehaviour
         }
         else
         {
-            // Plays clear 2D sound in trainee headset
             Vector3 soundPos = Camera.main != null ? Camera.main.transform.position : transform.position;
             AudioSource.PlayClipAtPoint(clip, soundPos, volume);
         }

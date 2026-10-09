@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -15,45 +16,37 @@ public class LaravelApiBridge : MonoBehaviour
         public int hazards_found;
         public int hazards_missed;
         public float completion_time;
+        public string[] found_hazards;
+        public string[] missed_hazards;
     }
 
-    [Header("Backend API Configuration")]
-    [Tooltip("API endpoint URL on your Laravel server")]
-    // Use http://127.0.0.1:8000/api/trainee-results when testing in Unity Editor on your laptop.
-    // Use your PC LAN IP (e.g., http://192.168.1.50:8000) or public URL when running on Meta Quest.
-    public string apiUrl = "http://127.0.0.1:8000/api/trainee-results";
+    [SerializeField] private string apiUrl = "http://127.0.0.1:8000/api/trainee-results";
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
+        if (Instance != null && Instance != this) Destroy(gameObject);
+        else Instance = this;
     }
 
-    /// <summary>
-    /// Packages session metrics and triggers the HTTP POST coroutine.
-    /// </summary>
-    public void SendSessionResult(int score, int found, int missed, float timeTaken)
+    public void SendSessionResult(int score, int found, int missed, float timeTaken, List<string> foundList, List<string> missedList)
     {
-        // Retrieve the username stored during the StartingPoint onboarding scene
-        string registeredName = PlayerPrefs.GetString("CurrentTrainee", "Anonymous_Worker");
+        string currentTrainee = PlayerPrefs.GetString("CurrentTrainee", "Faiz_Adham");
 
         TraineePayload payload = new TraineePayload
         {
-            username = registeredName,
+            username = currentTrainee,
             score = score,
             hazards_found = found,
             hazards_missed = missed,
-            completion_time = timeTaken
+            completion_time = timeTaken,
+            found_hazards = foundList.ToArray(),
+            missed_hazards = missedList.ToArray()
         };
 
-        StartCoroutine(PostResultRoutine(payload));
+        StartCoroutine(PostResult(payload));
     }
 
-    private IEnumerator PostResultRoutine(TraineePayload payload)
+    private IEnumerator PostResult(TraineePayload payload)
     {
         string json = JsonUtility.ToJson(payload);
 
@@ -69,11 +62,11 @@ public class LaravelApiBridge : MonoBehaviour
 
             if (request.result != UnityWebRequest.Result.Success)
             {
-                Debug.LogError($"[API Bridge] Failed to send trainee result: {request.error}");
+                Debug.LogError("[API Bridge] Error logging results: " + request.error);
             }
             else
             {
-                Debug.Log($"[API Bridge] Successfully logged to Laravel DB: {request.downloadHandler.text}");
+                Debug.Log("[API Bridge] Logged to Laravel DB: " + request.downloadHandler.text);
             }
         }
     }
