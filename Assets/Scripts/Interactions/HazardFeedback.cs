@@ -126,6 +126,9 @@ public class HazardFeedback : MonoBehaviour
             ApplyMaterialToAll(nonHazardMaterial);
             PlaySound(nonHazardSound, clickVolume);
 
+            // ---> ADD THIS LINE: Notify GameManager of a misclick / wrong click <---
+            TrainingGameManager.Instance?.AddWrongClick();
+
             HUDNotificationManager.Instance?.ShowNotification(nonHazardMessage, new Color(0.18f, 0.85f, 0.45f));
             Debug.Log($"<color=#2ECC71>[HazardFeedback] {nonHazardMessage} | Object: '{hazardDisplayName}'</color>");
         }
