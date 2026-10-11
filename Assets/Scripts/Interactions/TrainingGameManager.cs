@@ -205,6 +205,10 @@ public class TrainingGameManager : MonoBehaviour
         wrongClicks = 0;
         foundHazards.Clear();
         UpdateHUDDisplays();
+
+        // Dispatch initial active state to Laravel live monitor
+        string trainee = PlayerPrefs.GetString("CurrentTrainee", "Anonymous_Worker");
+        LaravelApiBridge.Instance?.SendHazardUpdate(trainee, 0, foundHazards, wrongClicks, 0f);
     }
 
     /// <summary>
@@ -221,6 +225,11 @@ public class TrainingGameManager : MonoBehaviour
             UpdateHUDDisplays();
 
             Debug.Log($"<color=green>[TrainingGameManager] Hazard Identified: {hazardName} ({currentScore}/{totalHazards})</color>");
+
+            // Dispatch live hazard update to Laravel Live Monitor
+            string trainee = PlayerPrefs.GetString("CurrentTrainee", "Anonymous_Worker");
+            float timeElapsed = sessionDuration - timeRemaining;
+            LaravelApiBridge.Instance?.SendHazardUpdate(trainee, currentScore, foundHazards, wrongClicks, timeElapsed);
 
             // Automatically finish session if all hazards are found
             if (currentScore >= totalHazards)
@@ -247,6 +256,11 @@ public class TrainingGameManager : MonoBehaviour
 
         wrongClicks++;
         Debug.Log($"<color=orange>[TrainingGameManager] Safe Object Clicked! Total Misclicks: {wrongClicks}</color>");
+
+        // Dispatch updated misclick penalty count to Laravel Live Monitor
+        string trainee = PlayerPrefs.GetString("CurrentTrainee", "Anonymous_Worker");
+        float timeElapsed = sessionDuration - timeRemaining;
+        LaravelApiBridge.Instance?.SendHazardUpdate(trainee, currentScore, foundHazards, wrongClicks, timeElapsed);
     }
 
     public void EndTrainingSession()
@@ -281,16 +295,11 @@ public class TrainingGameManager : MonoBehaviour
         }
 
         // 3. Dispatch session telemetry to Laravel backend
-        LaravelApiBridge bridge = GetComponent<LaravelApiBridge>();
-        if (bridge == null)
-        {
-            bridge = LaravelApiBridge.Instance;
-        }
-
+        LaravelApiBridge bridge = LaravelApiBridge.Instance;
         if (bridge != null)
         {
             bridge.SendSessionResult(
-                score: currentScore * 10,
+                score: totalHazards > 0 ? Mathf.RoundToInt(((float)currentScore / totalHazards) * 100f) : 0,
                 found: currentScore,
                 missed: missedHazards.Count,
                 wrong: wrongClicks,

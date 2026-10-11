@@ -7,7 +7,24 @@ using UnityEngine.Networking;
 
 public class LaravelApiBridge : MonoBehaviour
 {
-    public static LaravelApiBridge Instance { get; private set; }
+    private static LaravelApiBridge _instance;
+    public static LaravelApiBridge Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindFirstObjectByType<LaravelApiBridge>();
+                if (_instance == null)
+                {
+                    GameObject go = new GameObject("[LaravelApiBridge]");
+                    _instance = go.AddComponent<LaravelApiBridge>();
+                    DontDestroyOnLoad(go);
+                }
+            }
+            return _instance;
+        }
+    }
 
     [System.Serializable]
     public class TraineePayload
@@ -22,26 +39,138 @@ public class LaravelApiBridge : MonoBehaviour
         public string[] missed_hazards;
     }
 
-    [Header("API Endpoint Configuration")]
-    [Tooltip("Target Laravel endpoint. Use http://127.0.0.1:8000 for PC Editor testing, or your computer's LAN IP / public URL when deploying to Meta Quest 3.")]
-    [SerializeField] private string apiUrl = "http://127.0.0.1:8000/api/trainee-results";
+    [System.Serializable]
+    public class ActiveTraineePayload
+    {
+        public string username;
+        public int hazards_found;
+        public int hazards_missed;
+        public int wrong_clicks;
+        public string[] found_hazards;
+        public float score;
+        public float completion_time;
+    }
 
-    [Tooltip("Timeout in seconds before the request aborts if the server does not respond")]
-    [SerializeField] private int requestTimeoutSeconds = 10;
+    [Header("API Server Host Configuration")]
+    [Tooltip("Primary LAN IP via Apache port 80 (Always allowed by firewall, works instantly over campus Wi-Fi)")]
+    [SerializeField] private string primaryLanUrl = "http://10.101.129.153/laravel/FindHazardAdmin/public/api";
+
+    [Tooltip("USB Reverse Tunnel localhost (Works instantly via ADB reverse over USB cable or ADB WiFi)")]
+    [SerializeField] private string usbLocalhostUrl = "http://127.0.0.1:8000/api";
+
+    [Tooltip("Timeout in seconds before an HTTP request times out")]
+    [SerializeField] private int requestTimeoutSeconds = 3;
+
+    // Caches the confirmed working URL to make all subsequent calls instant (0ms failover)
+    private static string lastWorkingBaseUrl = null;
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
+        if (_instance == null)
         {
-            Destroy(gameObject);
-            return;
+            _instance = this;
+            if (transform.parent == null && GetComponent<TrainingGameManager>() == null)
+            {
+                DontDestroyOnLoad(gameObject);
+            }
         }
-        Instance = this;
+        else if (_instance != this)
+        {
+            // Another persistent instance exists; destroy this duplicate component only (never the GameObject)
+            Destroy(this);
+        }
     }
 
     /// <summary>
-    /// Dispatches session telemetry to the Laravel backend including misclick count and hazard names.
-    /// Matches the parameter structure invoked by TrainingGameManager.cs.
+    /// Returns ordered candidate URLs for a given API route (e.g. "active-trainee" or "trainee-results").
+    /// </summary>
+    private List<string> GetCandidateUrls(string endpoint)
+    {
+        List<string> list = new List<string>();
+
+        // 1. If we already found a working URL in this session, prioritize it immediately
+        if (!string.IsNullOrEmpty(lastWorkingBaseUrl))
+        {
+            list.Add(lastWorkingBaseUrl.TrimEnd('/') + "/" + endpoint);
+        }
+
+        // 2. USB Reverse Tunnel (127.0.0.1:8000) - Instantaneous (0.1ms) over USB connection
+        string usbEndpoint = usbLocalhostUrl.TrimEnd('/') + "/" + endpoint;
+        if (!list.Contains(usbEndpoint))
+        {
+            list.Add(usbEndpoint);
+        }
+
+        // 3. Direct Wi-Fi Apache Port 80 (Always allowed by Windows Firewall)
+        string apacheEndpoint = primaryLanUrl.TrimEnd('/') + "/" + endpoint;
+        if (!list.Contains(apacheEndpoint))
+        {
+            list.Add(apacheEndpoint);
+        }
+
+        return list;
+    }
+
+    /// <summary>
+    /// Transmits candidate username to the Laravel Live Monitor.
+    /// </summary>
+    public void SendActiveTrainee(string username)
+    {
+        if (string.IsNullOrWhiteSpace(username)) return;
+
+        PlayerPrefs.SetString("CurrentTrainee", username);
+        PlayerPrefs.Save();
+
+        ActiveTraineePayload payload = new ActiveTraineePayload
+        {
+            username = username,
+            hazards_found = 0,
+            hazards_missed = 13,
+            wrong_clicks = 0,
+            found_hazards = Array.Empty<string>(),
+            score = 0f,
+            completion_time = 0f
+        };
+
+        string json = JsonUtility.ToJson(payload);
+        StartCoroutine(PostWithFailover("active-trainee", json));
+    }
+
+    /// <summary>
+    /// Dispatches live hazard updates as hazards are clicked during the warehouse session.
+    /// </summary>
+    public void SendHazardUpdate(string username, int foundCount, List<string> foundList, int wrongClicks = 0, float completionTime = 0f)
+    {
+        if (string.IsNullOrWhiteSpace(username))
+        {
+            username = PlayerPrefs.GetString("CurrentTrainee", "Anonymous_Worker");
+        }
+
+        ActiveTraineePayload payload = new ActiveTraineePayload
+        {
+            username = username,
+            hazards_found = foundCount,
+            hazards_missed = Mathf.Max(0, 13 - foundCount),
+            wrong_clicks = wrongClicks,
+            found_hazards = foundList != null ? foundList.ToArray() : Array.Empty<string>(),
+            score = Mathf.Round(((float)foundCount / 13f) * 100f * 10f) / 10f,
+            completion_time = completionTime
+        };
+
+        string json = JsonUtility.ToJson(payload);
+        StartCoroutine(PostWithFailover("active-trainee", json));
+    }
+
+    /// <summary>
+    /// Resets the VR monitor to standby ("No trainee active yet").
+    /// </summary>
+    public void ClearActiveTrainee()
+    {
+        StartCoroutine(PostWithFailover("active-trainee/clear", "{}"));
+    }
+
+    /// <summary>
+    /// Dispatches final drill evaluation to Laravel MySQL database at session end.
     /// </summary>
     public void SendSessionResult(int score, int found, int missed, int wrong, float timeTaken, List<string> foundList, List<string> missedList)
     {
@@ -59,40 +188,66 @@ public class LaravelApiBridge : MonoBehaviour
             missed_hazards = missedList != null ? missedList.ToArray() : Array.Empty<string>()
         };
 
-        StartCoroutine(PostResult(payload));
+        string json = JsonUtility.ToJson(payload);
+        StartCoroutine(PostWithFailover("trainee-results", json));
     }
 
     /// <summary>
-    /// Fallback overload for calls that do not provide a wrong-click count.
+    /// Fallback overload for calls without wrong clicks argument.
     /// </summary>
     public void SendSessionResult(int score, int found, int missed, float timeTaken, List<string> foundList, List<string> missedList)
     {
         SendSessionResult(score, found, missed, 0, timeTaken, foundList, missedList);
     }
 
-    private IEnumerator PostResult(TraineePayload payload)
+    private IEnumerator PostWithFailover(string endpoint, string json)
     {
-        string json = JsonUtility.ToJson(payload);
+        List<string> candidateUrls = GetCandidateUrls(endpoint);
+        byte[] bodyRaw = Encoding.UTF8.GetBytes(json);
 
-        using (UnityWebRequest request = new UnityWebRequest(apiUrl, "POST"))
+        foreach (string targetUrl in candidateUrls)
         {
-            byte[] bodyRaw = Encoding.UTF8.GetBytes(json);
-            request.uploadHandler = new UploadHandlerRaw(bodyRaw);
-            request.downloadHandler = new DownloadHandlerBuffer();
-            request.timeout = requestTimeoutSeconds;
-            request.SetRequestHeader("Content-Type", "application/json");
-            request.SetRequestHeader("Accept", "application/json");
-
-            yield return request.SendWebRequest();
-
-            if (request.result != UnityWebRequest.Result.Success)
+            UnityWebRequest request = null;
+            try
             {
-                Debug.LogError($"[API Bridge] Error logging results: {request.error} | Response: {request.downloadHandler?.text}");
+                request = new UnityWebRequest(targetUrl, "POST");
+                UploadHandlerRaw uploadHandler = new UploadHandlerRaw(bodyRaw);
+                uploadHandler.contentType = "application/json";
+                request.uploadHandler = uploadHandler;
+                request.downloadHandler = new DownloadHandlerBuffer();
+                request.timeout = requestTimeoutSeconds;
+                request.SetRequestHeader("Content-Type", "application/json");
+                request.SetRequestHeader("Accept", "application/json");
             }
-            else
+            catch (Exception ex)
             {
-                Debug.Log($"<color=green>[API Bridge] Trainee session successfully saved to Laravel DB: {request.downloadHandler.text}</color>");
+                Debug.LogError($"[LaravelApiBridge] Error creating web request for {targetUrl}: {ex.Message}");
+                request?.Dispose();
+                continue;
+            }
+
+            using (request)
+            {
+                yield return request.SendWebRequest();
+
+                if (request.result == UnityWebRequest.Result.Success)
+                {
+                    // Cache the base URL prefix for future requests
+                    int lastSlash = targetUrl.LastIndexOf('/');
+                    if (lastSlash > 0)
+                    {
+                        lastWorkingBaseUrl = targetUrl.Substring(0, lastSlash);
+                    }
+                    Debug.Log($"<color=green>[LaravelApiBridge] Successfully synced '{endpoint}' to {targetUrl}: {request.downloadHandler.text}</color>");
+                    yield break;
+                }
+                else
+                {
+                    Debug.LogWarning($"[LaravelApiBridge] Failed posting to {targetUrl} ({request.error}). Trying next endpoint...");
+                }
             }
         }
+
+        Debug.LogError($"[LaravelApiBridge] All endpoints failed for route '{endpoint}'.");
     }
 }

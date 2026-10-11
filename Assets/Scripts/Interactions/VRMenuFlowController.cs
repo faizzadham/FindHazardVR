@@ -45,6 +45,9 @@ public class VRMenuFlowController : MonoBehaviour
 
     private void Start()
     {
+        // Reset VR Monitor to standby ("No trainee active yet") when in Start Menu
+        LaravelApiBridge.Instance?.ClearActiveTrainee();
+
         // Boot directly into the Start Menu with keyboard hidden
         ShowStartMenu();
     }
@@ -54,7 +57,6 @@ public class VRMenuFlowController : MonoBehaviour
     /// </summary>
     public void ShowMainMenu()
     {
-        SetPanelState(start: true, main: true, reg: false, keyboard: false);
         SetPanelState(start: false, main: true, reg: false, keyboard: false);
     }
 
@@ -126,7 +128,13 @@ public class VRMenuFlowController : MonoBehaviour
         PlayerPrefs.Save();
         Debug.Log($"[VRMenuFlow] Trainee '{traineeName}' registered. Loading {briefingSceneName}...");
 
-        // 2. Teleport to SafetyBriefingRoom
+        // 2. Dispatch to Laravel API so candidate appears immediately on the VR Monitor
+        if (LaravelApiBridge.Instance != null)
+        {
+            LaravelApiBridge.Instance.SendActiveTrainee(traineeName);
+        }
+
+        // 3. Teleport to SafetyBriefingRoom
         if (FadeScreen.Instance != null)
         {
             FadeScreen.Instance.FadeToScene(briefingSceneName);

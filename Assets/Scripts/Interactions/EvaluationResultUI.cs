@@ -102,6 +102,7 @@ public class EvaluationResultUI : MonoBehaviour
 
     public void OnExitClicked()
     {
+        LaravelApiBridge.Instance?.ClearActiveTrainee();
         SceneManager.LoadScene(mainMenuSceneName);
     }
 }
