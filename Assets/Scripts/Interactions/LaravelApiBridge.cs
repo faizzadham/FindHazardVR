@@ -228,7 +228,18 @@ public class LaravelApiBridge : MonoBehaviour
 
             using (request)
             {
-                yield return request.SendWebRequest();
+                UnityWebRequestAsyncOperation op = null;
+                try
+                {
+                    op = request.SendWebRequest();
+                }
+                catch (Exception ex)
+                {
+                    Debug.LogWarning($"[LaravelApiBridge] SendWebRequest error for {targetUrl}: {ex.Message}. Trying next endpoint...");
+                    continue;
+                }
+
+                yield return op;
 
                 if (request.result == UnityWebRequest.Result.Success)
                 {
