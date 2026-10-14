@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42681c68a845fcb42b7a85aa7087e881, type: 3}
+  m_Name: ConvaiSamplesShared_EmotionTaxonomy
+  m_EditorClassIdentifier: Convai.Modules.Emotion::Convai.Modules.Emotion.Taxonomy.EmotionTaxonomyAsset
+  entries:
+  - label: neutral
+    aliases:
+    - calm
+    - idle
+    complements: []
+    defaultMouthInfluence: 0
+    isNeutral: 1
+  - label: joy
+    aliases:
+    - happy
+    - happiness
+    - ecstasy
+    - serenity
+    - excited
+    - enthusiastic
+    complements:
+    - trust
+    defaultMouthInfluence: 0.6
+    isNeutral: 0
+  - label: trust
+    aliases:
+    - acceptance
+    - admiration
+    - confident
+    - reassured
+    complements:
+    - joy
+    defaultMouthInfluence: 0.3
+    isNeutral: 0
+  - label: fear
+    aliases:
+    - afraid
+    - apprehension
+    - terror
+    - fearful
+    - worried
+    - anxious
+    - nervous
+    complements:
+    - surprise
+    defaultMouthInfluence: 0.4
+    isNeutral: 0
+  - label: surprise
+    aliases:
+    - amazement
+    - distraction
+    - surprised
+    complements:
+    - fear
+    defaultMouthInfluence: 0.5
+    isNeutral: 0
+  - label: sadness
+    aliases:
+    - sad
+    - pensiveness
+    - grief
+    complements:
+    - disgust
+    defaultMouthInfluence: 0.3
+    isNeutral: 0
+  - label: disgust
+    aliases:
+    - disgusted
+    - loathing
+    - boredom
+    - bored
+    complements:
+    - anger
+    defaultMouthInfluence: 0.4
+    isNeutral: 0
+  - label: anger
+    aliases:
+    - angry
+    - annoyance
+    - rage
+    complements:
+    - disgust
+    defaultMouthInfluence: 0.55
+    isNeutral: 0
+  - label: anticipation
+    aliases:
+    - interest
+    - vigilance
+    - curious
+    - curiosity
+    - eager
+    - hopeful
+    complements:
+    - joy
+    defaultMouthInfluence: 0.45
+    isNeutral: 0

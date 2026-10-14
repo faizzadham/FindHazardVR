@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0d4c0db22474b92814ad4f75310e543, type: 3}
+  m_Name: ConvaiBodyAnimationProfile_Female
+  m_EditorClassIdentifier: Convai.Modules.BodyAnimation::Convai.Modules.BodyAnimation.Data.ConvaiBodyAnimationProfile
+  _animationSet: {fileID: 11400000, guid: 9206b3eafe016014ba2ba4b156ca4256, type: 2}
+  _config: {fileID: 11400000, guid: 69ddcd28d63646b4d9d432eba78e60b0, type: 2}
+  _autoCreateConversationFlow: 1

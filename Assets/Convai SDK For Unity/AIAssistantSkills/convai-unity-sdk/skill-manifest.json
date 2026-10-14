@@ -1,0 +1,5 @@
+{
+  "name": "convai-unity-sdk",
+  "version": "1.1.0",
+  "description": "Canonical Convai Unity SDK skill. AI Coding Setup copies and stamps this folder into .claude/skills/convai-unity-sdk for Claude or .agents/skills/convai-unity-sdk for ChatGPT desktop / Codex."
+}

@@ -1,0 +1,39 @@
+{
+  "name": "io.livekit.livekit-sdk",
+  "version": "2.0.0",
+  "displayName": "LiveKit SDK",
+  "description": "LiveKit",
+  "unity": "2022.3",
+  "author": {
+    "name": "LiveKit",
+    "url": "https://livekit.com/"
+  },
+  "samples": [
+    {
+      "displayName": "Common",
+      "description": "Common components used in the other samples",
+      "path": "Samples~/Common"
+    },
+    {
+      "displayName": "Basic",
+      "description": "Basic example of how to connect to a room",
+      "path": "Samples~/Basic"
+    },
+    {
+      "displayName": "Meet",
+      "description": "LiveKit Meet like sample app",
+      "path": "Samples~/Meet"
+    },
+    {
+      "displayName": "Agents",
+      "description": "Connect to an agent and see the transcript",
+      "path": "Samples~/Agents"
+    }
+  ],
+  "changelogUrl": "https://github.com/livekit/client-sdk-unity/releases/tag/v2.0.0",
+  "documentationUrl": "https://github.com/livekit/client-sdk-unity/blob/main/README.md",
+  "type": "library",
+  "dependencies": {
+    "com.unity.nuget.newtonsoft-json": "3.2.1"
+  }
+}

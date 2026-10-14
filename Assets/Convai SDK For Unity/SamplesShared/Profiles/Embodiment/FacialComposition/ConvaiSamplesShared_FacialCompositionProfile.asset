@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b513c96c7e15374a9e549d8be87ce7d, type: 3}
+  m_Name: ConvaiSamplesShared_FacialCompositionProfile
+  m_EditorClassIdentifier: 
+  _mouthPatterns: Mouth;Lip;Tongue;Jaw_Open
+  _browPatterns: Brow;Forehead
+  _eyePatterns: Eye_Blink;Eye_Squint;Eye_Wide;Eye_Look;Eye_L_Look;Eye_R_Look;Eyelash
+  _cheekPatterns: Cheek;Nose;Sneer
+  _jawPatterns: Jaw_Forward;Jaw_Backward;Jaw_L;Jaw_R;Jaw_Up;Jaw_Down
+  _headMeshPatterns: head;face
+  _secondaryMeshPatterns: teeth;tooth
+  _tertiaryMeshPatterns: tongue
+  _speechRampUpDuration: 0.15
+  _speechRampDownDuration: 0.4
+  _enableGlobalNormalization: 0
+  _mouthConfig:
+    IdleEmotionWeight: 1
+    IdleLipSyncWeight: 0
+    IdleCustomWeight: 0
+    SpeakingEmotionWeight: 0.2
+    SpeakingLipSyncWeight: 1
+    SpeakingCustomWeight: 0
+    Mode: 0
+    EnableNormalization: 0
+  _browConfig:
+    IdleEmotionWeight: 1
+    IdleLipSyncWeight: 0
+    IdleCustomWeight: 0
+    SpeakingEmotionWeight: 0.85
+    SpeakingLipSyncWeight: 0.15
+    SpeakingCustomWeight: 0
+    Mode: 0
+    EnableNormalization: 0
+  _eyeConfig:
+    IdleEmotionWeight: 0.8
+    IdleLipSyncWeight: 0
+    IdleCustomWeight: 0
+    SpeakingEmotionWeight: 0.7
+    SpeakingLipSyncWeight: 0.1
+    SpeakingCustomWeight: 0
+    Mode: 0
+    EnableNormalization: 0
+  _cheekConfig:
+    IdleEmotionWeight: 1
+    IdleLipSyncWeight: 0
+    IdleCustomWeight: 0
+    SpeakingEmotionWeight: 0.7
+    SpeakingLipSyncWeight: 0.25
+    SpeakingCustomWeight: 0
+    Mode: 0
+    EnableNormalization: 0
+  _jawConfig:
+    IdleEmotionWeight: 0.5
+    IdleLipSyncWeight: 0
+    IdleCustomWeight: 0
+    SpeakingEmotionWeight: 0.1
+    SpeakingLipSyncWeight: 1
+    SpeakingCustomWeight: 0
+    Mode: 0
+    EnableNormalization: 0
+  _otherConfig:
+    IdleEmotionWeight: 1
+    IdleLipSyncWeight: 0
+    IdleCustomWeight: 0
+    SpeakingEmotionWeight: 0.8
+    SpeakingLipSyncWeight: 0.3
+    SpeakingCustomWeight: 0
+    Mode: 0
+    EnableNormalization: 0

@@ -1,0 +1,19 @@
+{
+    "name": "Convai.Sample.MultiCharacter",
+    "rootNamespace": "Convai.Sample.MultiCharacter",
+    "references": [
+        "Convai.Domain",
+        "Convai.Runtime",
+        "Convai.Modules.Gaze",
+        "Unity.InputSystem"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

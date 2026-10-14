@@ -1,0 +1,3439 @@
+{
+  "operations": [
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "access_get_effective_capabilities",
+      "owner": "",
+      "path": "/access/capabilities",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "access"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "ingest_action_events_action_events_batch_post",
+      "owner": "",
+      "path": "/action-events/batch",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "action-events"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "create_animation_animations_create_post",
+      "owner": "",
+      "path": "/animations/create",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "animations"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "delete_animation_animations_delete_post",
+      "owner": "",
+      "path": "/animations/delete",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "animations"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "get_animation_animations_get_get",
+      "owner": "",
+      "path": "/animations/get",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "animations"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "list_animations_animations_list_get",
+      "owner": "",
+      "path": "/animations/list",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "animations"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "retry_animation_animations_retry_post",
+      "owner": "",
+      "path": "/animations/retry",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "animations"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "delete_asset_assets_delete_post",
+      "owner": "",
+      "path": "/assets/delete",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "assets"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "get_asset_assets_get_get",
+      "owner": "",
+      "path": "/assets/get",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "assets"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "list_assets_assets_list_get",
+      "owner": "",
+      "path": "/assets/list",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "assets"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "update_asset_assets_update_post",
+      "owner": "",
+      "path": "/assets/update",
+      "requestMediaTypes": [
+        "multipart/form-data"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "assets"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "upload_asset_assets_upload_post",
+      "owner": "",
+      "path": "/assets/upload",
+      "requestMediaTypes": [
+        "multipart/form-data"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "assets"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "activate_snapshot_character_activateSnapshot_post",
+      "owner": "",
+      "path": "/character/activateSnapshot",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "snapshots"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "create_avatar_character_avatars_create_post",
+      "owner": "",
+      "path": "/character/avatars/create",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "avatars"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "delete_avatar_character_avatars_delete_post",
+      "owner": "",
+      "path": "/character/avatars/delete",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "avatars"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "get_avatar_character_avatars_get_get",
+      "owner": "",
+      "path": "/character/avatars/get",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "avatars"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "list_avatars_character_avatars_list_get",
+      "owner": "",
+      "path": "/character/avatars/list",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "avatars"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "update_avatar_character_avatars_update_post",
+      "owner": "",
+      "path": "/character/avatars/update",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "avatars"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/chat-history-api\",\"documented_plan\":\"Scale Plan and above\",\"feature\":\"CHAT_HISTORY_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "chat_history_delete_character_chatHistory_delete_post",
+      "owner": "",
+      "path": "/character/chatHistory/delete",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "chat-history"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/chat-history-api\",\"documented_plan\":\"Scale Plan and above\",\"feature\":\"CHAT_HISTORY_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "chat_history_details_character_chatHistory_details_get",
+      "owner": "",
+      "path": "/character/chatHistory/details",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "chat-history"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/chat-history-api\",\"documented_plan\":\"Scale Plan and above\",\"feature\":\"CHAT_HISTORY_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "chat_history_details_post_character_chatHistory_details_post",
+      "owner": "",
+      "path": "/character/chatHistory/details",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "chat-history"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/chat-history-api\",\"documented_plan\":\"Scale Plan and above\",\"feature\":\"CHAT_HISTORY_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "chat_history_prompt_character_chatHistory_get_prompt_get",
+      "owner": "",
+      "path": "/character/chatHistory/get_prompt",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "chat-history"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/chat-history-api\",\"documented_plan\":\"Scale Plan and above\",\"feature\":\"CHAT_HISTORY_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "list_chat_history_character_chatHistory_list_get",
+      "owner": "",
+      "path": "/character/chatHistory/list",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "chat-history"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/chat-history-api\",\"documented_plan\":\"Scale Plan and above\",\"feature\":\"CHAT_HISTORY_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "list_chat_history_post_character_chatHistory_list_post",
+      "owner": "",
+      "path": "/character/chatHistory/list",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "chat-history"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/chat-history-api\",\"documented_plan\":\"Scale Plan and above\",\"feature\":\"CHAT_HISTORY_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "chat_history_update_character_chatHistory_update_post",
+      "owner": "",
+      "path": "/character/chatHistory/update",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "chat-history"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/character-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"CHARACTER_BASE_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "character_clone",
+      "owner": "{\"cutover_lane\":\"phase0_character_authoring\",\"db_tables\":[\"all_characters\",\"character_metadata\"],\"domain\":\"character_authoring\",\"write_owner\":\"convai-character-apis\"}",
+      "path": "/character/clone",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "character"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/character-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"CHARACTER_BASE_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "character_create",
+      "owner": "{\"cutover_lane\":\"phase0_character_authoring\",\"db_tables\":[\"all_characters\",\"character_metadata\",\"all_experiences\"],\"domain\":\"character_authoring\",\"read_tables\":[\"tts_voice\",\"all_avatars\",\"all_scenes\",\"api_plan\",\"plan_config_v1\"],\"side_effects\":[\"vertex-ai-gemini-when-voice-is-auto\",\"vertex-ai-gemini-when-avatar-and-scene-are-auto\"],\"write_owner\":\"convai-character-apis\"}",
+      "path": "/character/create",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "character"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "create_snapshot_character_createSnapshot_post",
+      "owner": "",
+      "path": "/character/createSnapshot",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "snapshots"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/character-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"CHARACTER_BASE_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "character_delete",
+      "owner": "{\"cutover_lane\":\"phase0_character_authoring\",\"db_tables\":[\"all_characters\",\"character_metadata\"],\"domain\":\"character_authoring\",\"write_owner\":\"convai-character-apis\"}",
+      "path": "/character/delete",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "character"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "delete_snapshot_character_deleteSnapshot_post",
+      "owner": "",
+      "path": "/character/deleteSnapshot",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "snapshots"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/backstory-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"BACKSTORY_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "character_generate_backstory",
+      "owner": "{\"cutover_lane\":\"phase0_character_authoring\",\"db_tables\":[\"all_characters\",\"character_metadata\"],\"domain\":\"character_authoring\",\"read_tables\":[\"tts_voice\"],\"side_effects\":[\"vertex-ai-gemini\"],\"write_owner\":\"convai-character-apis\"}",
+      "path": "/character/generate-backstory",
+      "requestMediaTypes": [
+        "application/x-www-form-urlencoded"
+      ],
+      "responseMediaTypes": [
+        "application/json",
+        "text/event-stream"
+      ],
+      "successResponseMediaTypes": [
+        "text/event-stream"
+      ],
+      "tags": [
+        "character"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/backstory-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"BACKSTORY_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "generate_starter_conversation",
+      "owner": "{\"cutover_lane\":\"phase0_character_authoring\",\"db_tables\":[\"all_characters\",\"character_metadata\"],\"domain\":\"character_authoring\",\"read_tables\":[\"tts_voice\"],\"side_effects\":[\"vertex-ai-gemini\"],\"write_owner\":\"convai-character-apis\"}",
+      "path": "/character/generate-starter-conversation",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json",
+        "text/event-stream"
+      ],
+      "successResponseMediaTypes": [
+        "text/event-stream"
+      ],
+      "tags": [
+        "character"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/character-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"CHARACTER_BASE_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "character_get",
+      "owner": "{\"cutover_lane\":\"phase0_character_authoring\",\"db_tables\":[\"all_characters\",\"character_metadata\"],\"domain\":\"character_authoring\",\"write_owner\":\"convai-character-apis\"}",
+      "path": "/character/get",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "character"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "get_snapshot_list_character_getSnapshotList_get",
+      "owner": "",
+      "path": "/character/getSnapshotList",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "snapshots"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/core-ai-settings-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"CORE_AI_SETTINGS_API\"}",
+      "classification": "compatibility",
+      "deprecated": true,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "character_get_supported_model_get",
+      "owner": "{\"cutover_lane\":\"phase0_character_authoring\",\"db_tables\":[],\"domain\":\"character_authoring\",\"read_tables\":[\"all_characters\",\"llm_metadata\",\"llm_model_dropdown_metadata\"],\"write_owner\":\"convai-character-apis\"}",
+      "path": "/character/getSupportedModel",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "character"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/core-ai-settings-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"CORE_AI_SETTINGS_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "character_get_supported_model",
+      "owner": "{\"cutover_lane\":\"phase0_character_authoring\",\"db_tables\":[],\"domain\":\"character_authoring\",\"read_tables\":[\"all_characters\",\"llm_metadata\",\"llm_model_dropdown_metadata\"],\"write_owner\":\"convai-character-apis\"}",
+      "path": "/character/getSupportedModel",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "character"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/knowledge-bank-api\",\"documented_plan\":\"All plans (quota-limited)\",\"feature\":\"KNOWLEDGE_BANK_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "character_in_prompt_kb_eligibility",
+      "owner": "{\"cutover_lane\":\"kb_association_sync\",\"db_tables\":[\"document_status\",\"character_revisions\",\"character_version_aliases\"],\"domain\":\"character_knowledge_bank_association\",\"read_tables\":[\"documents\",\"all_characters\"],\"write_owner\":\"convai-character-apis\"}",
+      "path": "/character/in-prompt-kb-eligibility",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "character"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/knowledge-bank-api\",\"documented_plan\":\"All plans (quota-limited)\",\"feature\":\"KNOWLEDGE_BANK_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "character_in_prompt_kb_models",
+      "owner": "{\"cutover_lane\":\"kb_association_sync\",\"db_tables\":[\"document_status\",\"character_revisions\",\"character_version_aliases\"],\"domain\":\"character_knowledge_bank_association\",\"read_tables\":[\"documents\",\"all_characters\"],\"write_owner\":\"convai-character-apis\"}",
+      "path": "/character/in-prompt-kb-models",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "character"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "knowledge_bank_access_character_knowledge_bank_access_get",
+      "owner": "",
+      "path": "/character/knowledge-bank/access",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "knowledge-bank"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/knowledge-bank-api\",\"documented_plan\":\"All plans (quota-limited)\",\"feature\":\"KNOWLEDGE_BANK_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "character_knowledge_bank_refresh_associations",
+      "owner": "{\"cutover_lane\":\"kb_association_sync\",\"db_tables\":[\"document_status\",\"character_revisions\",\"character_version_aliases\"],\"domain\":\"character_knowledge_bank_association\",\"read_tables\":[\"documents\",\"all_characters\"],\"write_owner\":\"convai-character-apis\"}",
+      "path": "/character/knowledge-bank/refresh-associations",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "character"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/character-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"CHARACTER_BASE_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "character_list",
+      "owner": "{\"cutover_lane\":\"phase0_character_authoring\",\"db_tables\":[\"all_characters\",\"character_metadata\"],\"domain\":\"character_authoring\",\"write_owner\":\"convai-character-apis\"}",
+      "path": "/character/list",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "character"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/narrative-design-api\",\"documented_plan\":\"API-key authenticated; plan tier not specified in docs\",\"feature\":\"NARRATIVE_DESIGN_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "add_decision_character_narrative_add_decision_post",
+      "owner": "",
+      "path": "/character/narrative/add-decision",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "narrative"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/narrative-design-api\",\"documented_plan\":\"API-key authenticated; plan tier not specified in docs\",\"feature\":\"NARRATIVE_DESIGN_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "delete_decision_character_narrative_delete_decision_post",
+      "owner": "",
+      "path": "/character/narrative/delete-decision",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "narrative"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/narrative-design-api\",\"documented_plan\":\"API-key authenticated; plan tier not specified in docs\",\"feature\":\"NARRATIVE_DESIGN_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "edit_decision_character_narrative_edit_decision_post",
+      "owner": "",
+      "path": "/character/narrative/edit-decision",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "narrative"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/narrative-design-api\",\"documented_plan\":\"API-key authenticated; plan tier not specified in docs\",\"feature\":\"NARRATIVE_DESIGN_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "get_current_section_character_narrative_get_current_section_post",
+      "owner": "",
+      "path": "/character/narrative/get-current-section",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "narrative"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/narrative-design-api\",\"documented_plan\":\"API-key authenticated; plan tier not specified in docs\",\"feature\":\"NARRATIVE_DESIGN_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "create_section_character_narrative_sections_create_post",
+      "owner": "",
+      "path": "/character/narrative/sections/create",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "narrative"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/narrative-design-api\",\"documented_plan\":\"API-key authenticated; plan tier not specified in docs\",\"feature\":\"NARRATIVE_DESIGN_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "delete_section_character_narrative_sections_delete_post",
+      "owner": "",
+      "path": "/character/narrative/sections/delete",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "narrative"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/narrative-design-api\",\"documented_plan\":\"API-key authenticated; plan tier not specified in docs\",\"feature\":\"NARRATIVE_DESIGN_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "get_section_character_narrative_sections_get_get",
+      "owner": "",
+      "path": "/character/narrative/sections/get",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "narrative"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/narrative-design-api\",\"documented_plan\":\"API-key authenticated; plan tier not specified in docs\",\"feature\":\"NARRATIVE_DESIGN_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "list_sections_character_narrative_sections_list_get",
+      "owner": "",
+      "path": "/character/narrative/sections/list",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "narrative"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/narrative-design-api\",\"documented_plan\":\"API-key authenticated; plan tier not specified in docs\",\"feature\":\"NARRATIVE_DESIGN_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "update_section_character_narrative_sections_update_post",
+      "owner": "",
+      "path": "/character/narrative/sections/update",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "narrative"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/narrative-design-api\",\"documented_plan\":\"API-key authenticated; plan tier not specified in docs\",\"feature\":\"NARRATIVE_DESIGN_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "create_trigger_character_narrative_triggers_create_post",
+      "owner": "",
+      "path": "/character/narrative/triggers/create",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "narrative"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/narrative-design-api\",\"documented_plan\":\"API-key authenticated; plan tier not specified in docs\",\"feature\":\"NARRATIVE_DESIGN_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "delete_trigger_character_narrative_triggers_delete_post",
+      "owner": "",
+      "path": "/character/narrative/triggers/delete",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "narrative"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/narrative-design-api\",\"documented_plan\":\"API-key authenticated; plan tier not specified in docs\",\"feature\":\"NARRATIVE_DESIGN_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "get_trigger_character_narrative_triggers_get_get",
+      "owner": "",
+      "path": "/character/narrative/triggers/get",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "narrative"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/narrative-design-api\",\"documented_plan\":\"API-key authenticated; plan tier not specified in docs\",\"feature\":\"NARRATIVE_DESIGN_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "list_triggers_character_narrative_triggers_list_get",
+      "owner": "",
+      "path": "/character/narrative/triggers/list",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "narrative"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/narrative-design-api\",\"documented_plan\":\"API-key authenticated; plan tier not specified in docs\",\"feature\":\"NARRATIVE_DESIGN_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "update_trigger_character_narrative_triggers_update_post",
+      "owner": "",
+      "path": "/character/narrative/triggers/update",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "narrative"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/narrative-design-api\",\"documented_plan\":\"API-key authenticated; plan tier not specified in docs\",\"feature\":\"NARRATIVE_DESIGN_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "update_start_section_id_character_narrative_update_start_section_id_post",
+      "owner": "",
+      "path": "/character/narrative/update-start-section-id",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "narrative"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/narrative-design-api\",\"documented_plan\":\"API-key authenticated; plan tier not specified in docs\",\"feature\":\"NARRATIVE_DESIGN_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "update_state_character_narrative_update_state_post",
+      "owner": "",
+      "path": "/character/narrative/update-state",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "narrative"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/core-ai-settings-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"CORE_AI_SETTINGS_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "character_list_supported_models",
+      "owner": "{\"cutover_lane\":\"phase0_character_authoring\",\"db_tables\":[],\"domain\":\"character_authoring\",\"read_tables\":[\"all_characters\",\"llm_metadata\",\"llm_model_dropdown_metadata\"],\"write_owner\":\"convai-character-apis\"}",
+      "path": "/character/supported-models",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "character"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/character-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"CHARACTER_BASE_API\"}",
+      "classification": "compatibility",
+      "deprecated": true,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "character_toggle_is_narrative_driven",
+      "owner": "{\"cutover_lane\":\"phase0_character_authoring\",\"db_tables\":[\"all_characters\",\"character_metadata\"],\"domain\":\"character_authoring\",\"write_owner\":\"convai-character-apis\"}",
+      "path": "/character/toggle-is-narrative-driven",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "character"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/character-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"CHARACTER_BASE_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "character_toggle_narrative_full_graph_context",
+      "owner": "{\"cutover_lane\":\"phase0_character_authoring\",\"db_tables\":[\"all_characters\",\"character_metadata\"],\"domain\":\"character_authoring\",\"write_owner\":\"convai-character-apis\"}",
+      "path": "/character/toggle-narrative-full-graph-context",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "character"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/character-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"CHARACTER_BASE_API\"}",
+      "classification": "compatibility",
+      "deprecated": true,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "character_toggle_use_local_rag",
+      "owner": "{\"cutover_lane\":\"phase0_character_authoring\",\"db_tables\":[\"all_characters\",\"character_metadata\"],\"domain\":\"character_authoring\",\"write_owner\":\"convai-character-apis\"}",
+      "path": "/character/toggle-use-local-rag",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "character"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/character-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"CHARACTER_BASE_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "character_update",
+      "owner": "{\"cutover_lane\":\"phase0_character_authoring\",\"db_tables\":[\"all_characters\",\"character_metadata\"],\"domain\":\"character_authoring\",\"write_owner\":\"convai-character-apis\"}",
+      "path": "/character/update",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "character"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/character-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"CHARACTER_BASE_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "character_version_bootstrap",
+      "owner": "{\"cutover_lane\":\"phase0_character_authoring\",\"db_tables\":[\"character_revisions\",\"character_versions\",\"character_version_aliases\"],\"domain\":\"character_authoring\",\"write_owner\":\"convai-character-apis\"}",
+      "path": "/character/versions/bootstrap",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "character-versions"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/character-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"CHARACTER_BASE_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "character_version_create",
+      "owner": "{\"cutover_lane\":\"phase0_character_authoring\",\"db_tables\":[\"character_revisions\",\"character_versions\",\"character_version_aliases\"],\"domain\":\"character_authoring\",\"write_owner\":\"convai-character-apis\"}",
+      "path": "/character/versions/create",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "character-versions"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/character-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"CHARACTER_BASE_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "character_version_deprecate",
+      "owner": "{\"cutover_lane\":\"phase0_character_authoring\",\"db_tables\":[\"character_revisions\",\"character_versions\",\"character_version_aliases\"],\"domain\":\"character_authoring\",\"write_owner\":\"convai-character-apis\"}",
+      "path": "/character/versions/deprecate",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "character-versions"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/character-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"CHARACTER_BASE_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "character_version_diff",
+      "owner": "{\"cutover_lane\":\"phase0_character_authoring\",\"db_tables\":[\"character_revisions\",\"character_versions\",\"character_version_aliases\"],\"domain\":\"character_authoring\",\"write_owner\":\"convai-character-apis\"}",
+      "path": "/character/versions/diff",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "character-versions"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/character-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"CHARACTER_BASE_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "character_version_discard_draft",
+      "owner": "{\"cutover_lane\":\"phase0_character_authoring\",\"db_tables\":[\"character_revisions\",\"character_versions\",\"character_version_aliases\"],\"domain\":\"character_authoring\",\"write_owner\":\"convai-character-apis\"}",
+      "path": "/character/versions/discard-draft",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "character-versions"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/character-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"CHARACTER_BASE_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "character_version_fork",
+      "owner": "{\"cutover_lane\":\"phase0_character_authoring\",\"db_tables\":[\"character_revisions\",\"character_versions\",\"character_version_aliases\"],\"domain\":\"character_authoring\",\"write_owner\":\"convai-character-apis\"}",
+      "path": "/character/versions/fork",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "character-versions"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/character-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"CHARACTER_BASE_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "character_version_list",
+      "owner": "{\"cutover_lane\":\"phase0_character_authoring\",\"db_tables\":[\"character_revisions\",\"character_versions\",\"character_version_aliases\"],\"domain\":\"character_authoring\",\"write_owner\":\"convai-character-apis\"}",
+      "path": "/character/versions/list",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "character-versions"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/character-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"CHARACTER_BASE_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "character_version_promote",
+      "owner": "{\"cutover_lane\":\"phase0_character_authoring\",\"db_tables\":[\"character_revisions\",\"character_versions\",\"character_version_aliases\"],\"domain\":\"character_authoring\",\"write_owner\":\"convai-character-apis\"}",
+      "path": "/character/versions/promote",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "character-versions"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/character-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"CHARACTER_BASE_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "character_version_resolve",
+      "owner": "{\"cutover_lane\":\"phase0_character_authoring\",\"db_tables\":[\"character_revisions\",\"character_versions\",\"character_version_aliases\"],\"domain\":\"character_authoring\",\"write_owner\":\"convai-character-apis\"}",
+      "path": "/character/versions/resolve",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "character-versions"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/character-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"CHARACTER_BASE_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "character_version_revert_draft_change",
+      "owner": "{\"cutover_lane\":\"phase0_character_authoring\",\"db_tables\":[\"character_revisions\",\"character_versions\",\"character_version_aliases\"],\"domain\":\"character_authoring\",\"write_owner\":\"convai-character-apis\"}",
+      "path": "/character/versions/revert",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "character-versions"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/character-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"CHARACTER_BASE_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "DELETE",
+      "operationId": "character_delete_canonical",
+      "owner": "{\"cutover_lane\":\"phase0_character_authoring\",\"db_tables\":[\"all_characters\",\"character_metadata\"],\"domain\":\"character_authoring\",\"write_owner\":\"convai-character-apis\"}",
+      "path": "/character/{character_id}",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "character"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/mindview-api\",\"documented_plan\":\"API-key authenticated; plan tier not specified in docs\",\"feature\":\"MINDVIEW_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "get_character_mindview",
+      "owner": "",
+      "path": "/character/{character_id}/mindview",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "mindview"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/mindview-api\",\"documented_plan\":\"API-key authenticated; plan tier not specified in docs\",\"feature\":\"MINDVIEW_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "analyze_mindview_dynamic_context_templates",
+      "owner": "",
+      "path": "/character/{character_id}/mindview/dynamic-context-templates",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "mindview"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/mindview-api\",\"documented_plan\":\"API-key authenticated; plan tier not specified in docs\",\"feature\":\"MINDVIEW_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "get_mindview_prompt_system_message",
+      "owner": "",
+      "path": "/character/{character_id}/mindview/prompts/{prompt_id}",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "mindview"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/mindview-api\",\"documented_plan\":\"API-key authenticated; plan tier not specified in docs\",\"feature\":\"MINDVIEW_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "get_session_mindview",
+      "owner": "",
+      "path": "/character/{character_id}/sessions/{session_id}/mindview",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "mindview"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/character-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"CHARACTER_BASE_API\"}",
+      "classification": "internal",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "list_test_environment_fixtures",
+      "owner": "{\"cutover_lane\":\"phase0_character_authoring\",\"db_tables\":[\"character_test_environment_fixtures\"],\"domain\":\"character_authoring\",\"read_tables\":[\"all_characters\"],\"write_owner\":\"convai-character-apis\"}",
+      "path": "/character/{character_id}/test-environment-fixtures",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "test-environment-fixtures"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/character-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"CHARACTER_BASE_API\"}",
+      "classification": "internal",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "create_test_environment_fixture",
+      "owner": "{\"cutover_lane\":\"phase0_character_authoring\",\"db_tables\":[\"character_test_environment_fixtures\"],\"domain\":\"character_authoring\",\"read_tables\":[\"all_characters\"],\"write_owner\":\"convai-character-apis\"}",
+      "path": "/character/{character_id}/test-environment-fixtures",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "test-environment-fixtures"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/character-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"CHARACTER_BASE_API\"}",
+      "classification": "internal",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "get_test_environment_fixture",
+      "owner": "{\"cutover_lane\":\"phase0_character_authoring\",\"db_tables\":[\"character_test_environment_fixtures\"],\"domain\":\"character_authoring\",\"read_tables\":[\"all_characters\"],\"write_owner\":\"convai-character-apis\"}",
+      "path": "/character/{character_id}/test-environment-fixtures/{fixture_id}",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "test-environment-fixtures"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/character-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"CHARACTER_BASE_API\"}",
+      "classification": "internal",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "PATCH",
+      "operationId": "update_test_environment_fixture",
+      "owner": "{\"cutover_lane\":\"phase0_character_authoring\",\"db_tables\":[\"character_test_environment_fixtures\"],\"domain\":\"character_authoring\",\"read_tables\":[\"all_characters\"],\"write_owner\":\"convai-character-apis\"}",
+      "path": "/character/{character_id}/test-environment-fixtures/{fixture_id}",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "test-environment-fixtures"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/character-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"CHARACTER_BASE_API\"}",
+      "classification": "internal",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "DELETE",
+      "operationId": "delete_test_environment_fixture",
+      "owner": "{\"cutover_lane\":\"phase0_character_authoring\",\"db_tables\":[\"character_test_environment_fixtures\"],\"domain\":\"character_authoring\",\"read_tables\":[\"all_characters\"],\"write_owner\":\"convai-character-apis\"}",
+      "path": "/character/{character_id}/test-environment-fixtures/{fixture_id}",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "test-environment-fixtures"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/action-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"ACTION_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "create_function_functions_create_post",
+      "owner": "",
+      "path": "/functions/create",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "functions"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/action-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"ACTION_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "delete_function_functions_delete_post",
+      "owner": "",
+      "path": "/functions/delete",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "functions"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/action-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"ACTION_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "get_function_functions_get_post",
+      "owner": "",
+      "path": "/functions/get",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "functions"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/action-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"ACTION_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "list_functions_functions_list_post",
+      "owner": "",
+      "path": "/functions/list",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "functions"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/action-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"ACTION_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "list_templates_functions_templates_list_post",
+      "owner": "",
+      "path": "/functions/templates/list",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "functions"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/action-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"ACTION_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "test_function_functions_test_post",
+      "owner": "",
+      "path": "/functions/test",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "functions"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/action-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"ACTION_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "update_function_functions_update_post",
+      "owner": "",
+      "path": "/functions/update",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "functions"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "internal",
+      "deprecated": false,
+      "errorResponseMediaTypes": [],
+      "method": "GET",
+      "operationId": "health_health_get",
+      "owner": "",
+      "path": "/health",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "health"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/chat-history-api\",\"documented_plan\":\"Scale Plan and above\",\"feature\":\"CHAT_HISTORY_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "list_logs_interaction_logs_list_get",
+      "owner": "",
+      "path": "/interaction-logs/list",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "interaction-logs"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/chat-history-api\",\"documented_plan\":\"Scale Plan and above\",\"feature\":\"CHAT_HISTORY_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "search_logs_interaction_logs_search_get",
+      "owner": "",
+      "path": "/interaction-logs/search",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "interaction-logs"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "get_model_llm_models_get_get",
+      "owner": "",
+      "path": "/llm-models/get",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "llm-models"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "list_models_llm_models_list_get",
+      "owner": "",
+      "path": "/llm-models/list",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "llm-models"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "register_model_llm_models_register_post",
+      "owner": "",
+      "path": "/llm-models/register",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "llm-models"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "update_model_llm_models_update_post",
+      "owner": "",
+      "path": "/llm-models/update",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "llm-models"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis\",\"documented_plan\":\"API-key authenticated; plan tier not yet documented\",\"feature\":\"MCP_TOOLS_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "attach_mcp_server_mcp_characters_attach_post",
+      "owner": "{\"cutover_lane\":\"character-authoring\",\"db_tables\":[\"all_mcp_servers\",\"all_mcp_server_character_associations\",\"all_mcp_server_oauth\",\"all_mcp_oauth_flows\"],\"domain\":\"mcp-authoring\",\"read_tables\":[\"all_characters\"],\"side_effects\":[\"outbound MCP initialize and tools/list for explicit connection tests\",\"OAuth token refresh during saved-server tests and best-effort token revocation\"],\"write_owner\":\"convai-character-apis\"}",
+      "path": "/mcp/characters/attach",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "mcp"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis\",\"documented_plan\":\"API-key authenticated; plan tier not yet documented\",\"feature\":\"MCP_TOOLS_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "detach_mcp_server_mcp_characters_detach_post",
+      "owner": "{\"cutover_lane\":\"character-authoring\",\"db_tables\":[\"all_mcp_servers\",\"all_mcp_server_character_associations\",\"all_mcp_server_oauth\",\"all_mcp_oauth_flows\"],\"domain\":\"mcp-authoring\",\"read_tables\":[\"all_characters\"],\"side_effects\":[\"outbound MCP initialize and tools/list for explicit connection tests\",\"OAuth token refresh during saved-server tests and best-effort token revocation\"],\"write_owner\":\"convai-character-apis\"}",
+      "path": "/mcp/characters/detach",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "mcp"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis\",\"documented_plan\":\"API-key authenticated; plan tier not yet documented\",\"feature\":\"MCP_TOOLS_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "list_character_mcp_servers_mcp_characters_list_post",
+      "owner": "{\"cutover_lane\":\"character-authoring\",\"db_tables\":[\"all_mcp_servers\",\"all_mcp_server_character_associations\",\"all_mcp_server_oauth\",\"all_mcp_oauth_flows\"],\"domain\":\"mcp-authoring\",\"read_tables\":[\"all_characters\"],\"side_effects\":[\"outbound MCP initialize and tools/list for explicit connection tests\",\"OAuth token refresh during saved-server tests and best-effort token revocation\"],\"write_owner\":\"convai-character-apis\"}",
+      "path": "/mcp/characters/list",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "mcp"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis\",\"documented_plan\":\"API-key authenticated; plan tier not yet documented\",\"feature\":\"MCP_TOOLS_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "create_mcp_server_mcp_servers_create_post",
+      "owner": "{\"cutover_lane\":\"character-authoring\",\"db_tables\":[\"all_mcp_servers\",\"all_mcp_server_character_associations\",\"all_mcp_server_oauth\",\"all_mcp_oauth_flows\"],\"domain\":\"mcp-authoring\",\"read_tables\":[\"all_characters\"],\"side_effects\":[\"outbound MCP initialize and tools/list for explicit connection tests\",\"OAuth token refresh during saved-server tests and best-effort token revocation\"],\"write_owner\":\"convai-character-apis\"}",
+      "path": "/mcp/servers/create",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "mcp"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis\",\"documented_plan\":\"API-key authenticated; plan tier not yet documented\",\"feature\":\"MCP_TOOLS_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "delete_mcp_server_mcp_servers_delete_post",
+      "owner": "{\"cutover_lane\":\"character-authoring\",\"db_tables\":[\"all_mcp_servers\",\"all_mcp_server_character_associations\",\"all_mcp_server_oauth\",\"all_mcp_oauth_flows\"],\"domain\":\"mcp-authoring\",\"read_tables\":[\"all_characters\"],\"side_effects\":[\"outbound MCP initialize and tools/list for explicit connection tests\",\"OAuth token refresh during saved-server tests and best-effort token revocation\"],\"write_owner\":\"convai-character-apis\"}",
+      "path": "/mcp/servers/delete",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "mcp"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis\",\"documented_plan\":\"API-key authenticated; plan tier not yet documented\",\"feature\":\"MCP_TOOLS_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "list_mcp_servers_mcp_servers_list_post",
+      "owner": "{\"cutover_lane\":\"character-authoring\",\"db_tables\":[\"all_mcp_servers\",\"all_mcp_server_character_associations\",\"all_mcp_server_oauth\",\"all_mcp_oauth_flows\"],\"domain\":\"mcp-authoring\",\"read_tables\":[\"all_characters\"],\"side_effects\":[\"outbound MCP initialize and tools/list for explicit connection tests\",\"OAuth token refresh during saved-server tests and best-effort token revocation\"],\"write_owner\":\"convai-character-apis\"}",
+      "path": "/mcp/servers/list",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "mcp"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis\",\"documented_plan\":\"API-key authenticated; plan tier not yet documented\",\"feature\":\"MCP_TOOLS_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "test_mcp_server_mcp_servers_test_post",
+      "owner": "{\"cutover_lane\":\"character-authoring\",\"db_tables\":[\"all_mcp_servers\",\"all_mcp_server_character_associations\",\"all_mcp_server_oauth\",\"all_mcp_oauth_flows\"],\"domain\":\"mcp-authoring\",\"read_tables\":[\"all_characters\"],\"side_effects\":[\"outbound MCP initialize and tools/list for explicit connection tests\",\"OAuth token refresh during saved-server tests and best-effort token revocation\"],\"write_owner\":\"convai-character-apis\"}",
+      "path": "/mcp/servers/test",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "mcp"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis\",\"documented_plan\":\"API-key authenticated; plan tier not yet documented\",\"feature\":\"MCP_TOOLS_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "update_mcp_server_mcp_servers_update_post",
+      "owner": "{\"cutover_lane\":\"character-authoring\",\"db_tables\":[\"all_mcp_servers\",\"all_mcp_server_character_associations\",\"all_mcp_server_oauth\",\"all_mcp_oauth_flows\"],\"domain\":\"mcp-authoring\",\"read_tables\":[\"all_characters\"],\"side_effects\":[\"outbound MCP initialize and tools/list for explicit connection tests\",\"OAuth token refresh during saved-server tests and best-effort token revocation\"],\"write_owner\":\"convai-character-apis\"}",
+      "path": "/mcp/servers/update",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "mcp"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "interaction_analytics_project_get_interaction_analytics_get",
+      "owner": "",
+      "path": "/project/get-interaction-analytics",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "project"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "session_analytics_project_get_session_analytics_get",
+      "owner": "",
+      "path": "/project/get-session-analytics",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "project"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "internal",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "readiness_readiness_get",
+      "owner": "",
+      "path": "/readiness",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "health"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/language-list-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"LANGUAGE_LIST_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "get_available_languages_tts_get_available_languages_get",
+      "owner": "",
+      "path": "/tts/get_available_languages",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "tts"
+      ]
+    },
+    {
+      "access": "{\"docs_url\":\"https://docs.convai.com/api-docs/api-reference/core-api-reference/character-crafting-apis/voice-list-api\",\"documented_plan\":\"Professional Plan and above\",\"feature\":\"VOICE_LIST_API\"}",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "get_available_voices_tts_get_available_voices_get",
+      "owner": "",
+      "path": "/tts/get_available_voices",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "tts"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "api_usage_user_api_usage_post",
+      "owner": "",
+      "path": "/user/api-usage",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "user-account"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "compatibility",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "clone_character_user_clone_character_post",
+      "owner": "",
+      "path": "/user/clone_character",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "user-compat"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "compatibility",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "download_asset_get_user_downloadAsset_get",
+      "owner": "",
+      "path": "/user/downloadAsset",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "user-compat"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "compatibility",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "download_asset_post_user_downloadAsset_post",
+      "owner": "",
+      "path": "/user/downloadAsset",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "user-compat"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "profile_user_profile_get",
+      "owner": "",
+      "path": "/user/profile",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "user-account"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "delete_speaker_user_speaker_delete_post",
+      "owner": "",
+      "path": "/user/speaker/delete",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "user-account"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "get_speaker_user_speaker_get_post",
+      "owner": "",
+      "path": "/user/speaker/get",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "user-account"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "list_speakers_user_speaker_list_post",
+      "owner": "",
+      "path": "/user/speaker/list",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "user-account"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "new_speaker_user_speaker_new_post",
+      "owner": "",
+      "path": "/user/speaker/new",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "user-account"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "update_speaker_user_speaker_update_post",
+      "owner": "",
+      "path": "/user/speaker/update",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "user-account"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "api_usage_user_user_api_usage_post",
+      "owner": "",
+      "path": "/user/user-api-usage",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "user-account"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "list_workspaces_workspaces_get",
+      "owner": "",
+      "path": "/workspaces",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "workspaces"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "create_workspace_workspaces_post",
+      "owner": "",
+      "path": "/workspaces",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "workspaces"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "get_workspace_workspaces__workspace_id__get",
+      "owner": "",
+      "path": "/workspaces/{workspace_id}",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "workspaces"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "PATCH",
+      "operationId": "update_workspace_workspaces__workspace_id__patch",
+      "owner": "",
+      "path": "/workspaces/{workspace_id}",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "workspaces"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "get_workspace_key_status_workspaces__workspace_id__api_key_get",
+      "owner": "",
+      "path": "/workspaces/{workspace_id}/api-key",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "workspaces"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "DELETE",
+      "operationId": "revoke_workspace_key_workspaces__workspace_id__api_key_delete",
+      "owner": "",
+      "path": "/workspaces/{workspace_id}/api-key",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [],
+      "tags": [
+        "workspaces"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "reveal_workspace_key_workspaces__workspace_id__api_key_reveal_post",
+      "owner": "",
+      "path": "/workspaces/{workspace_id}/api-key/reveal",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "workspaces"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "rotate_workspace_key_workspaces__workspace_id__api_key_rotate_post",
+      "owner": "",
+      "path": "/workspaces/{workspace_id}/api-key/rotate",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "workspaces"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "issue_preview_grant_workspaces__workspace_id__characters__character_id__preview_grants_post",
+      "owner": "",
+      "path": "/workspaces/{workspace_id}/characters/{character_id}/preview-grants",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "workspace-preview"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "list_members_workspaces__workspace_id__members_get",
+      "owner": "",
+      "path": "/workspaces/{workspace_id}/members",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "workspaces"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "add_member_workspaces__workspace_id__members_post",
+      "owner": "",
+      "path": "/workspaces/{workspace_id}/members",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "workspaces"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "DELETE",
+      "operationId": "remove_member_workspaces__workspace_id__members__user_id__delete",
+      "owner": "",
+      "path": "/workspaces/{workspace_id}/members/{user_id}",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [],
+      "tags": [
+        "workspaces"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "add_domain_xp_addDomain_post",
+      "owner": "",
+      "path": "/xp/addDomain",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "domains"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "check_usage_xp_checkUsage_post",
+      "owner": "",
+      "path": "/xp/checkUsage",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "stream-access"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "create_experience_xp_create_post",
+      "owner": "",
+      "path": "/xp/create",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "experience"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "delete_experience_xp_delete_post",
+      "owner": "",
+      "path": "/xp/delete",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "experience"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "delete_domain_xp_deleteDomain_post",
+      "owner": "",
+      "path": "/xp/deleteDomain",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "domains"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "list_experiences_xp_experiences_get",
+      "owner": "",
+      "path": "/xp/experiences",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "experience"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "experience_detail_xp_experiences_detail_get",
+      "owner": "",
+      "path": "/xp/experiences/detail",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "experience"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "edit_experience_xp_experiences_editExperience_post",
+      "owner": "",
+      "path": "/xp/experiences/editExperience",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "experience"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "publish_experience_xp_experiences_publish_post",
+      "owner": "",
+      "path": "/xp/experiences/publish",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "experience"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "my_domains_xp_myDomains_get",
+      "owner": "",
+      "path": "/xp/myDomains",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "domains"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "session_action_xp_sessions_action_post",
+      "owner": "",
+      "path": "/xp/sessions/action",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "experience-sessions"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "session_detail_xp_sessions_detail_get",
+      "owner": "",
+      "path": "/xp/sessions/detail",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "experience-sessions"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "new_session_xp_sessions_new_post",
+      "owner": "",
+      "path": "/xp/sessions/new",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "experience-sessions"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "validate_domain_xp_stream_validateDomain_post",
+      "owner": "",
+      "path": "/xp/stream/validateDomain",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "stream-access"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "allocate_stream_xp_streams_allocate_post",
+      "owner": "",
+      "path": "/xp/streams/allocate",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "experience-sessions"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "create_with_scene_xp_streams_createWithScene_post",
+      "owner": "",
+      "path": "/xp/streams/createWithScene",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "xp-streams"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "POST",
+      "operationId": "edit_stream_experience_xp_streams_editExperience_post",
+      "owner": "",
+      "path": "/xp/streams/editExperience",
+      "requestMediaTypes": [
+        "application/json"
+      ],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "xp-streams"
+      ]
+    },
+    {
+      "access": "",
+      "classification": "public-stable",
+      "deprecated": false,
+      "errorResponseMediaTypes": [
+        "application/json"
+      ],
+      "method": "GET",
+      "operationId": "valid_domains_xp_validDomains_get",
+      "owner": "",
+      "path": "/xp/validDomains",
+      "requestMediaTypes": [],
+      "responseMediaTypes": [
+        "application/json"
+      ],
+      "successResponseMediaTypes": [
+        "application/json"
+      ],
+      "tags": [
+        "stream-access"
+      ]
+    }
+  ],
+  "schemaVersion": 2
+}

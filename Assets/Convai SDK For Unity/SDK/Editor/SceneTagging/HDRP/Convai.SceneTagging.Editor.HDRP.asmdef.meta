@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: aae82ca22ca774904a79689b607c01a9
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 235621
+  packageName: NPC AI Engine - Dialog, actions, voice and lipsync - Convai
+  packageVersion: 4.6.1
+  assetPath: Assets/Convai SDK For Unity/SDK/Editor/SceneTagging/HDRP/Convai.SceneTagging.Editor.HDRP.asmdef
+  uploadId: 1006180

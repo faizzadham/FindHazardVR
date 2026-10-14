@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 09058b4f0b424df4bb82ecfe7f590865
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 625f186215c104763be7675aa2d941aa, type: 3}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 235621
+  packageName: NPC AI Engine - Dialog, actions, voice and lipsync - Convai
+  packageVersion: 4.6.1
+  assetPath: Assets/Convai SDK For Unity/SamplesShared/Plugins/Reallusion/CCiC/URP/Shaders/SG/HQ/RL5_HairShader_2nd_Pass_Variants_URP.shadergraph
+  uploadId: 1006180

@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d15fdc7f985ec4640be192e63c9c2a8b, type: 3}
+  m_Name: ConvaiSamplesShared_Emotion_Reserved
+  m_EditorClassIdentifier: Convai.Modules.Emotion::Convai.Modules.Emotion.Profiles.ConvaiEmotionProfile
+  taxonomy: {fileID: 11400000, guid: 9eda0ae3f51142a482788cd40be51507, type: 2}
+  lerpSpeed: 3.5
+  decaySpeed: 1.2
+  intensityOffset: 0
+  prosodyCoupling: 0.08
+  microBurstEnabled: 1
+  microBurstDuration: 0.32
+  microBurstOvershoot: 1.15
+  microBurstThreshold: 0.22
+  baselineEmotionLabel:
+  baselineIntensity: 0
+  expressiveness:
+  - label: joy
+    gain: 0.7
+  - label: trust
+    gain: 0.7
+  - label: sadness
+    gain: 0.7
+  - label: anger
+    gain: 0.7
+  - label: fear
+    gain: 0.7
+  - label: surprise
+    gain: 0.7
+  - label: disgust
+    gain: 0.7
+  - label: anticipation
+    gain: 0.7
+  emotionDynamics: []
+  moodDriftEnabled: 1
+  moodDriftRate: 0.05
+  moodRecoveryRate: 0.08
+  moodDriftMaxIntensity: 0.14
+  contagionEnabled: 0
+  contagionStrength: 0.3
+  contagionRadius: 4
+  contagionMaxIntensity: 0.2
+  enableEmotionBlending: 1
+  emotionSwitchDwell: 0.7
+  emotionSwitchMargin: 0.18
+  complementBlendScale: 0.22
+  maxSimultaneousEmotions: 2
+  microExpressionsEnabled: 1
+  microExpressionAmplitude: 0.06
+  speechAccentStrength: 0.12
+  microExpressionStillness: 0.8
+  listeningReactionStrength: 0.12
+  thinkingReactionStrength: 0.22
+  reactingAccentStrength: 0.12
+  interruptedFlinchStrength: 0.16
+  expressionRecipes: []
+  materialBinding:
+    slots: []

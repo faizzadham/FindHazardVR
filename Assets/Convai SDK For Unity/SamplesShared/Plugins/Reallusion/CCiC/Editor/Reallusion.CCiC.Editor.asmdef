@@ -1,0 +1,18 @@
+{
+    "name": "Reallusion.CCiC.Editor",
+    "rootNamespace": "Reallusion.Runtime",
+    "references": [
+        "Reallusion.CCiC.Runtime"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

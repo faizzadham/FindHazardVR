@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d4e73fbc47be4823a8549456dc67ac38
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 235621
+  packageName: NPC AI Engine - Dialog, actions, voice and lipsync - Convai
+  packageVersion: 4.6.1
+  assetPath: Assets/Convai SDK For Unity/SamplesShared/Prefabs/UI/Debug/Emotion State
+    Debug Panel.prefab
+  uploadId: 1006180

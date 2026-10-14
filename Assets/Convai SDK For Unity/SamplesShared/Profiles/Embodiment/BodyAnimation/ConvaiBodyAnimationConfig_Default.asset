@@ -1,0 +1,127 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7592331062cd4a8da982cb22d587482f, type: 3}
+  m_Name: ConvaiBodyAnimationConfig_Default
+  m_EditorClassIdentifier: Convai.Modules.BodyAnimation::Convai.Modules.BodyAnimation.Data.ConvaiBodyAnimationConfig
+  _idleCrossfadeSeconds: 0.6
+  _talkFadeInSeconds: 0.5
+  _talkFadeOutSeconds: 0.9
+  _talkReleaseDelaySeconds: 0.16
+  _talkReleasePlaybackSpeed: 0.2
+  _actionFadeInSeconds: 0.25
+  _actionFadeOutSeconds: 0.35
+  _pointingFadeSeconds: 0.3
+  _pointingReaimCrossfadeSeconds: 0.25
+  _actionChainCrossfadeSeconds: 0.2
+  _locomotionCrossfadeSeconds: 0.25
+  _actionLayerWeight: 1
+  _pointingLayerWeight: 1
+  _beatLayerWeight: 1
+  _blendCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _idleVariantIntervalMin: 8
+  _idleVariantIntervalMax: 16
+  _useSpeechEnergy: 1
+  _talkWeightAtLowEnergy: 0.2
+  _talkOverlayWeight: 0.45
+  _switchTalkVariantOnLoop: 1
+  _talkVariantCrossfadeSeconds: 0.5
+  _listenFadeInSeconds: 0.8
+  _thinkingEnterDelaySeconds: 0.4
+  _interruptedFreezeSeconds: 0.25
+  _interruptedReleaseScale: 0.6
+  _talkOutroMaxSeconds: 0.7
+  _movingTalkMode: 0
+  _movingTalkWeight: 0.7
+  _movingTalkOverrideWeight: 0.45
+  _movingTalkBlendSeconds: 0.35
+  _enableBeatGestures: 0
+  _beatRefractorySeconds: 1.2
+  _beatWeightScale: 1
+  _enableAdvancedCoSpeech: 0
+  _coSpeechMinimumAccentEnergy: 0.42
+  _coSpeechEmphasisDerivative: 1.2
+  _coSpeechAccentProbability: 0.48
+  _coSpeechAccentRefractorySeconds: 0.85
+  _coSpeechPhraseEnergyMargin: 0.08
+  _coSpeechPreparationSeconds: 0.22
+  _coSpeechStrokeSeconds: 0.16
+  _coSpeechReferentialHoldSeconds: 0.28
+  _coSpeechRetractionSeconds: 0.38
+  _enableReferentialGestures: 1
+  _referentialGestureRefractorySeconds: 6
+  _referentialGestureClassCooldownSeconds: 10
+  _referentialGestureWeight: 1
+  _proximityExpressiveness: 1
+  _proximityNearDistance: 1.5
+  _proximityNearScale: 0.85
+  _proximityFarDistance: 6
+  _proximityFarScale: 1.15
+  _proximitySmoothingSeconds: 0.5
+  _gestureLiveliness: 1
+  _calmness: 1
+  _walkSpeed: 1.2
+  _jogSpeed: 2.6
+  _speedDampingSeconds: 0.12
+  _rateWarpMin: 0.85
+  _rateWarpMax: 1.2
+  _turnInPlaceMinAngle: 60
+  _turn180MinAngle: 135
+  _motionHandoffNormalizedTime: 0.85
+  _lowSpeedStopFraction: 0.6
+  _plantedStopMinTravel: 1.2
+  _enablePointGlance: 1
+  _pointGlanceSeconds: 0.9
+  _enableAmbientActivities: 0
+  _ambientStartDelaySeconds: 12
+  _ambientIntervalSeconds: 20
+  _ambientSuppressDistance: 4
+  _enableSocialSpacing: 0
+  _comfortRadius: 0.7
+  _comfortHoldSeconds: 0.6
+  _maxRepositionsPerMinute: 3
+  _enableEmotionalGait: 0
+  _emotionGaitRange: 0.15
+  _publishExertion: 1
+  _exertionRiseSeconds: 8
+  _exertionRecoverySeconds: 6
+  _enableTurnInPlace: 0
+  _enableDirectionalStarts: 1
+  _enablePlantedStops: 0
+  _plantedStopsWhileWalking: 0
+  _enableSpeedChangeClips: 1
+  _enableSpeedWarping: 1
+  _enableFootIK: 1
+  _traceVerbosity: 0
+  _firehoseIntervalSeconds: 0.25

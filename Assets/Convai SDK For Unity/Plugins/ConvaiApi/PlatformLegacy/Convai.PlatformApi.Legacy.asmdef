@@ -1,0 +1,17 @@
+{
+    "name": "Convai.PlatformApi.Legacy",
+    "rootNamespace": "Convai.PlatformApi.Legacy",
+    "references": [
+        "Convai.Api.Transport",
+        "Newtonsoft.Json"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": true
+}

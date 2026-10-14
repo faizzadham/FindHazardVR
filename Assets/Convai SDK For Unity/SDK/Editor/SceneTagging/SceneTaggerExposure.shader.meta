@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: b55b7646a7af74c2f8abe88e317c6829
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 235621
+  packageName: NPC AI Engine - Dialog, actions, voice and lipsync - Convai
+  packageVersion: 4.6.1
+  assetPath: Assets/Convai SDK For Unity/SDK/Editor/SceneTagging/SceneTaggerExposure.shader
+  uploadId: 1006180

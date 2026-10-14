@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7080faee6031aa64f8ee86c6a57186f1
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 235621
+  packageName: NPC AI Engine - Dialog, actions, voice and lipsync - Convai
+  packageVersion: 4.6.1
+  assetPath: Assets/Convai SDK For Unity/SamplesShared/Art/Materials/Convai_Common_Logo_White_Lit_M.mat
+  uploadId: 1006180

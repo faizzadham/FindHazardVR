@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 52b32b293fad4066805aa63886450c32
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 235621
+  packageName: NPC AI Engine - Dialog, actions, voice and lipsync - Convai
+  packageVersion: 4.6.1
+  assetPath: Assets/Convai SDK For Unity/AIAssistantSkills/convai-unity-sdk/references/chatgpt-codex.md
+  uploadId: 1006180

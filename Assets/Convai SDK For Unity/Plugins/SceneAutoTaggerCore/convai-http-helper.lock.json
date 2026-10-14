@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "component": "convai-http-helper",
+  "repository": "https://github.com/Conv-AI/convai-cpp-helper",
+  "source_commit": "ce90a64a7ff86d4fc88795503070803ff5ce3317",
+  "version": "1.2.0",
+  "files": {
+    "Editor/Windows/x86_64/convai_http_helper.dll": "797e63841724b869d868195e25df6bc88556bfe64dd8e28cfc4e48a5445cf711",
+    "Editor/macOS/libconvai_http_helper.dylib": "79a5cb83946ea3dc12779c82b17854030ab4a5db536c094497415c98d98143b3"
+  },
+  "pending_platforms": [],
+  "upstreamManifestSha256": "df9b00b4289d1deb7a87450a1ad421c78e660b3238c605753dd205f51112fe00"
+}

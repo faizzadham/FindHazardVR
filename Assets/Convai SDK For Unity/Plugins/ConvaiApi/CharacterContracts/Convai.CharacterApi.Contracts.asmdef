@@ -1,0 +1,16 @@
+{
+    "name": "Convai.CharacterApi.Contracts",
+    "rootNamespace": "Convai.CharacterApi.Contracts",
+    "references": [
+        "Newtonsoft.Json"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": true
+}

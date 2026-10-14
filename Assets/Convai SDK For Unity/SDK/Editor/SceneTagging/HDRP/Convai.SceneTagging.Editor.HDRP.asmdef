@@ -1,0 +1,25 @@
+{
+  "name": "Convai.SceneTagging.Editor.HDRP",
+  "rootNamespace": "Convai.Editor.SceneTagging",
+  "references": [
+    "Convai.Editor",
+    "Unity.RenderPipelines.Core.Runtime",
+    "Unity.RenderPipelines.HighDefinition.Runtime",
+    "Convai.Shared.Unity"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "autoReferenced": true,
+  "defineConstraints": [
+    "CONVAI_SCENE_TAGGER_HDRP"
+  ],
+  "versionDefines": [
+    {
+      "name": "com.unity.render-pipelines.high-definition",
+      "expression": "[17.0.0,18.0.0)",
+      "define": "CONVAI_SCENE_TAGGER_HDRP"
+    }
+  ],
+  "noEngineReferences": false
+}

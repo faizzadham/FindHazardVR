@@ -1,0 +1,22 @@
+{
+  "version": "0.10.0",
+  "source": "005257b787014f9f210f15bc57f5f227883dddba",
+  "abi": 4,
+  "channel": "unsigned-internal-prerelease",
+  "customerDistributionReady": false,
+  "viewPolicy": "sat-p-02-4b8f19e6",
+  "visionProtocol": "sat-vision-v26-domain-neutral-scene-01",
+  "archives": {
+    "windows-x86_64.zip": "daf88c11967638723377cb982ce21382135cfa9a4594d1d9b387b6ec4c3ad6a3",
+    "macos-universal.tar.gz": "4263c1d2195c948df9d7852aea5368d455ea9c1040c809a54c8a04a479b46e6a"
+  },
+  "files": {
+    "Editor/Windows/x86_64/convai_http_helper.dll": "797e63841724b869d868195e25df6bc88556bfe64dd8e28cfc4e48a5445cf711",
+    "Editor/Windows/x86_64/convai_scene_auto_tagger_core.dll": "4754293a5aac5c775c3a14a8c149008a9101fb2c7b407ec9a69c0f8a70d1c816",
+    "Editor/macOS/libconvai_http_helper.dylib": "79a5cb83946ea3dc12779c82b17854030ab4a5db536c094497415c98d98143b3",
+    "Editor/macOS/libconvai_scene_auto_tagger_core.dylib": "26b27b84012a7a96518c87fa88652752f93b424b5680be4a143c4b23a035eb9f",
+    "THIRD_PARTY_NOTICES.md": "bc5043014855bc5401215b84298851cfa8b2d73f5c255938a86d8ce1a063dacc",
+    "convai-http-helper.lock.json": "0d2ce982282181b43ed072e1166f803d6aa4ee8227dd3134844384471d69d4a4",
+    "include/convai_scene_auto_tagger_core.h": "a218770f741e9ad54d556ecc1ec376b2a7ebdabeeadc098e0bb22f443d4e758b"
+  }
+}

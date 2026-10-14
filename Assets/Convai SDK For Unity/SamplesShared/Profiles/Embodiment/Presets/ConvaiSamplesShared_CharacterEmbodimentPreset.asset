@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 189b48d8528177d44815012ca3163245, type: 3}
+  m_Name: ConvaiSamplesShared_CharacterEmbodimentPreset
+  m_EditorClassIdentifier: Convai.Modules.Embodiment::Convai.Modules.Embodiment.Presets.ConvaiEmbodimentPreset
+  presetId: convai-samples-shared-humanoid
+  description: Shared Convai Unity sample embodiment preset for humanoid characters that
+    use compatible facial blendshape naming conventions.
+  profileSlots:
+  - moduleId: convai.conversation-flow
+    profile: {fileID: 11400000, guid: f692fc9d1560b1447968d381bd4a4d60, type: 2}
+  - moduleId: convai.emotion
+    profile: {fileID: 11400000, guid: 92f6e41ef5fc4e5db8b93a1eb3f8120c, type: 2}
+  - moduleId: convai.gaze
+    profile: {fileID: 11400000, guid: 6ff0277dba48b3c4b9739a1f3c4021d1, type: 2}
+  - moduleId: convai.body-animation
+    profile: {fileID: 11400000, guid: c836e2e8642f55544ab1c8051087d0c3, type: 2}
+  - moduleId: convai.body-language
+    profile: {fileID: 11400000, guid: 62e0132b7feca824c9231edafef52ae0, type: 2}

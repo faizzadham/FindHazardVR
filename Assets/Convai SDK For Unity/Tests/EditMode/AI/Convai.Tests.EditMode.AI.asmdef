@@ -1,0 +1,59 @@
+{
+    "name": "Convai.Tests.EditMode.AI",
+    "rootNamespace": "Convai.Tests.EditMode.AI",
+    "references": [
+        "Convai.Domain",
+        "Convai.Domain.Embodiment",
+        "Convai.Editor",
+        "Convai.Editor.AI",
+        "Convai.Modules.Emotion",
+        "Convai.Modules.Emotion.Editor",
+        "Convai.Modules.Emotion.Editor.AI",
+        "Convai.Modules.Embodiment",
+        "Convai.Modules.ConversationFlow",
+        "Convai.Editor.Embodiment.AI",
+        "Convai.Editor.Embodiment",
+        "Convai.Modules.Gaze",
+        "Convai.Modules.Gaze.Editor",
+        "Convai.Modules.Gaze.Editor.AI",
+        "Convai.Modules.BodyAnimation",
+        "Convai.Modules.BodyAnimation.Editor",
+        "Convai.Modules.BodyAnimation.Editor.AI",
+        "Convai.Modules.BodyLanguage",
+        "Convai.Modules.BodyLanguage.Editor",
+        "Convai.Modules.BodyLanguage.Editor.AI",
+        "Convai.Modules.LipSync.Editor.AI",
+        "Convai.Modules.Narrative",
+        "Convai.Modules.Narrative.Editor.AI",
+        "Convai.Runtime",
+        "Convai.Runtime.UI",
+        "Convai.Shared.Unity",
+        "Unity.AI.MCP.Editor",
+        "Convai.Tests.EditMode"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "Newtonsoft.Json.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS",
+        "CONVAI_UNITY_MCP"
+    ],
+    "versionDefines": [
+        {
+            "name": "com.unity.ai.assistant",
+            "expression": "[2.13.0-pre.2,3.0.0)",
+            "define": "CONVAI_UNITY_MCP"
+        }
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "noEngineReferences": false
+}

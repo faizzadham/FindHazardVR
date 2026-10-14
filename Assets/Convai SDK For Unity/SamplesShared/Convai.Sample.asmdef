@@ -1,0 +1,26 @@
+{
+    "name": "Convai.Sample",
+    "rootNamespace": "Convai.Sample",
+    "references": [
+        "Convai.Domain",
+        "Convai.Domain.Embodiment",
+        "Convai.Runtime",
+        "Convai.Runtime.UI",
+        "Convai.Modules.Emotion",
+        "Convai.Modules.BodyAnimation",
+        "Convai.Modules.Gaze",
+        "Convai.Modules.BodyLanguage",
+        "Convai.Shared.Unity",
+        "Unity.TextMeshPro",
+        "Unity.InputSystem"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

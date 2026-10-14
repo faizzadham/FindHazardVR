@@ -1,0 +1,258 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a148b57c3424d97e5e3e63b904aa5a43, type: 3}
+  m_Name: ConvaiSamplesShared_GazeProfile
+  m_EditorClassIdentifier: Convai.Modules.Gaze::Convai.Modules.Gaze.Data.ConvaiGazeProfile
+  targeting:
+    playerMaxDistance: 8
+    playerFullRelevanceDistance: 4
+    playerLineOfSight: 0
+    playerObstructionMask:
+      serializedVersion: 2
+      m_Bits: 4294967291
+    targetTeleportThreshold: 1.25
+    commitmentAcquireSeconds: 0.35
+    commitmentReleaseSeconds: 0.9
+    targetLossHoldSeconds: 0.6
+    interestDecayPerSecond: 0.05
+    interestRecoveryPerSecond: 0.1
+    maxContinuousHoldSeconds: 14
+    interestBreakThreshold: 0.15
+    enableTargetLossSearch: 1
+    targetLossSearchMaxSeconds: 3
+  conversationStates:
+    statePolicies:
+    - State: 0
+      Engagement: 0
+      AllowPlayerTarget: 0
+      HeadContribution: 0.35
+      AllowBodyTurn: 0
+      AversionMode: 0
+      AversionStrength: 0
+      FixationLiveliness: 1
+    - State: 2
+      Engagement: 0.9
+      AllowPlayerTarget: 1
+      HeadContribution: 0.85
+      AllowBodyTurn: 1
+      AversionMode: 2
+      AversionStrength: 0.15
+      FixationLiveliness: 1
+    - State: 1
+      Engagement: 0.95
+      AllowPlayerTarget: 1
+      HeadContribution: 0.85
+      AllowBodyTurn: 1
+      AversionMode: 2
+      AversionStrength: 0.08
+      FixationLiveliness: 1.1
+    - State: 3
+      Engagement: 0.7
+      AllowPlayerTarget: 1
+      HeadContribution: 0.6
+      AllowBodyTurn: 0
+      AversionMode: 1
+      AversionStrength: 0.7
+      FixationLiveliness: 1.3
+    - State: 4
+      Engagement: 1
+      AllowPlayerTarget: 1
+      HeadContribution: 0.85
+      AllowBodyTurn: 1
+      AversionMode: 0
+      AversionStrength: 0
+      FixationLiveliness: 1
+    - State: 5
+      Engagement: 1
+      AllowPlayerTarget: 1
+      HeadContribution: 0.9
+      AllowBodyTurn: 1
+      AversionMode: 0
+      AversionStrength: 0
+      FixationLiveliness: 1.2
+    - State: 6
+      Engagement: 0.95
+      AllowPlayerTarget: 1
+      HeadContribution: 0.9
+      AllowBodyTurn: 1
+      AversionMode: 0
+      AversionStrength: 0
+      FixationLiveliness: 1.1
+    - State: 7
+      Engagement: 0.6
+      AllowPlayerTarget: 1
+      HeadContribution: 0.6
+      AllowBodyTurn: 0
+      AversionMode: 2
+      AversionStrength: 0.25
+      FixationLiveliness: 0.9
+    policyBlendSpeed: 5
+  headAndTorso:
+    headFollowSeconds: 0.2
+    torsoFollowSeconds: 0.35
+    headStabilization: 1
+    maxHeadAngularSpeed: 150
+    maxTorsoAngularSpeed: 90
+    maxHeadYawDegrees: 55
+    maxHeadPitchDegrees: 32
+    neckShare: 0.35
+    chainFollowThrough: 1
+    enableTorsoRecruitment: 1
+    maxTorsoYawDegrees: 22
+    maxTorsoPitchDegrees: 6
+  gazeShiftLadder:
+    headEntryDegrees: 12
+    torsoEntryDegrees: 35
+    feetEntryDegrees: 25
+    headOnsetSeconds: 0.12
+    torsoOnsetSeconds: 0.15
+    feetOnsetSeconds: 0.25
+    headTurnBaseSeconds: 0.45
+    headTurnSecondsPerDegree: 0.0125
+    torsoTurnBaseSeconds: 0.55
+    torsoTurnSecondsPerDegree: 0.018
+    movementSkew: 0.18
+    shiftTriggerDegrees: 2
+    idleDriftTempoScale: 1.35
+    eyeComfortDegrees: 14
+    headComfortYawDegrees: 35
+  eyes:
+    eyeActuationMode: 0
+    eyeMaxYawDegrees: 35
+    eyeMaxPitchUpDegrees: 22
+    eyeMaxPitchDownDegrees: 28
+    eyeSoftLimitFraction: 0.8
+    orbitRecenteringStrength: 0.6
+    eyeTrackingSharpness: 40
+    saccadeMinDurationSeconds: 0.03
+    saccadeDurationPerDegree: 0.0022
+    saccadeDeadzoneDegrees: 0.75
+    saccadeReactionSeconds: 0.12
+    catchUpErrorDegrees: 5
+    pursuitLeadSeconds: 0.04
+    enableVergence: 1
+    vergenceMinDistance: 0.14
+    maxConvergenceDegrees: 16
+    syntheticInterpupillaryDistance: 0.063
+    fixationDriftDegrees: 0.35
+    fixationDriftFrequency: 0.5
+    microSaccadeIntervalMean: 1.5
+    microSaccadeIntervalJitter: 0.9
+    microSaccadeAmplitudeDegrees: 0.5
+    enableFaceScan: 1
+    faceScanIntervalMean: 2.1
+    faceScanIntervalJitter: 1.2
+    faceScanRadiusDegrees: 2.2
+    enableListenerMouthBias: 1
+    listenerMouthBiasStrength: 2
+  blinkAndLids:
+    enableBlink: 1
+    blinkIntervalMean: 4.2
+    blinkIntervalJitter: 2.2
+    blinkCloseSeconds: 0.07
+    blinkOpenSeconds: 0.16
+    blinkRefractorySeconds: 0.6
+    gazeShiftBlinkThresholdDegrees: 18
+    gazeShiftBlinkProbability: 0.55
+    enableEyelidFollow: 1
+    eyelidFollowStrength: 0.6
+    enableBlinkClustering: 1
+    blinkClusterRateMultiplier: 3
+  bodyTurn:
+    enableBodyTurn: 1
+    bodyTurnCompletionToleranceDegrees: 8
+    bodyTurnHeadRelief: 1
+    proceduralTurnSpeed: 90
+  idleLife:
+    enableAmbientExploration: 1
+    ambientYawRangeDegrees: 26
+    ambientPitchUpDegrees: 8
+    ambientPitchDownDegrees: 12
+    ambientIntervalMin: 1.7
+    ambientIntervalMax: 4.6
+    ambientHeadFollow: 0.35
+    ambientRecenterBias: 0.35
+    enableCuriosityGlances: 1
+    curiosityGlanceIntervalMin: 7
+    curiosityGlanceIntervalMax: 16
+    curiosityGlanceDuration: 1.2
+    curiosityRespondsToAttention: 0
+  conversationalGestures:
+    enableListeningNods: 1
+    nodPitchDegrees: 3
+    nodDurationSeconds: 0.55
+    listeningNodIntervalMin: 3.5
+    listeningNodIntervalMax: 8
+    acknowledgeNodProbability: 0.7
+    enableInterruptionReaction: 1
+    interruptionReactionIntensity: 0.7
+  conversationRhythm:
+    enableTurnTakingGaze: 1
+    planningBreakProbability: 0.7
+    enableYieldBlink: 1
+    enableYieldHeadDip: 0
+  emotionModulation:
+    enableEmotionModulation: 1
+    emotionModifiers:
+    - EmotionLabel: sadness
+      EngagementScale: 1
+      AversionScale: 1
+      BlinkRateScale: 1
+      LidApertureScale: 1
+      AversionBias: 3
+      SaccadeTempoScale: 0.8
+      FixationLivelinessScale: 1
+    - EmotionLabel: joy
+      EngagementScale: 1
+      AversionScale: 1
+      BlinkRateScale: 1
+      LidApertureScale: 1
+      AversionBias: 0
+      SaccadeTempoScale: 1.15
+      FixationLivelinessScale: 1.2
+    - EmotionLabel: anger
+      EngagementScale: 1
+      AversionScale: 1
+      BlinkRateScale: 1
+      LidApertureScale: 1
+      AversionBias: 2
+      SaccadeTempoScale: 1.2
+      FixationLivelinessScale: 1
+  proxemics:
+    enableProxemicRegulation: 1
+    proxemicCloseDistanceMeters: 0.6
+    proxemicIntensity: 1
+  speakerAttention:
+    attentionEngagement: 0.6
+    attentionHeadContribution: 0.7
+    attentionAllowBodyTurn: 0
+    attentionMaxAngleDegrees: 100
+    attentionMaxDistance: 10
+    reactionMedianSeconds: 0.28
+    reactionSpread: 0.35
+    attentionDecaySeconds: 6
+    reactionMinSeparationSeconds: 0.35
+    attentionHoldSeconds: 2.5
+    attentionLookAway: 0.2
+    attentionInterruptionSeconds: 0.6
+    enableAudienceChecks: 1
+    audienceCheckIntervalMin: 9
+    audienceCheckIntervalMax: 22
+    audienceCheckDuration: 0.6
+  performance:
+    enableGazeLod: 0
+    lodFarDistance: 12
+    lodFarCognitionHz: 10
+    skipWhenInvisible: 1
+  diagnostics:
+    traceVerbosity: 0
+    firehoseHz: 10

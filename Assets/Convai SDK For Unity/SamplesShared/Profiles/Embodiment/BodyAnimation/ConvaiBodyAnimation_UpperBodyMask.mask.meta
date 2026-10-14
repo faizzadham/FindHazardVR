@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 108aee5204487224e8dfd569486dfbdd
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 31900000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 235621
+  packageName: NPC AI Engine - Dialog, actions, voice and lipsync - Convai
+  packageVersion: 4.6.1
+  assetPath: Assets/Convai SDK For Unity/SamplesShared/Profiles/Embodiment/BodyAnimation/ConvaiBodyAnimation_UpperBodyMask.mask
+  uploadId: 1006180

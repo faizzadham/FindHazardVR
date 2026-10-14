@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: 1499288a766ada60d74517958590e70f
+AssetOrigin:
+  serializedVersion: 1
+  productId: 235621
+  packageName: NPC AI Engine - Dialog, actions, voice and lipsync - Convai
+  packageVersion: 4.6.1
+  assetPath: Assets/Convai SDK For Unity/Plugins/ConvaiApi/CharacterContracts/Generated/Models/DependencyOperation.cs
+  uploadId: 1006180

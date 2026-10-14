@@ -1,0 +1,4 @@
+interface:
+  display_name: "Convai Unity SDK"
+  short_description: "Set up and troubleshoot Convai characters in Unity"
+  default_prompt: "Use $convai-unity-sdk to set up or diagnose my Convai conversation scene in Unity."

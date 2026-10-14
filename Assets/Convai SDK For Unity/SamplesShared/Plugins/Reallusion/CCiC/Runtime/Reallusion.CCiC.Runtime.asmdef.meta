@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: f72f4f2c8e1b6024389e831b2e27f3ed
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 235621
+  packageName: NPC AI Engine - Dialog, actions, voice and lipsync - Convai
+  packageVersion: 4.6.1
+  assetPath: Assets/Convai SDK For Unity/SamplesShared/Plugins/Reallusion/CCiC/Runtime/Reallusion.CCiC.Runtime.asmdef
+  uploadId: 1006180

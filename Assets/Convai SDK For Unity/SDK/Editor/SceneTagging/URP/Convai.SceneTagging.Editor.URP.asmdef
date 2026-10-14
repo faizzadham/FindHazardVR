@@ -1,0 +1,25 @@
+{
+  "name": "Convai.SceneTagging.Editor.URP",
+  "rootNamespace": "Convai.Editor.SceneTagging",
+  "references": [
+    "Convai.Editor",
+    "Unity.RenderPipelines.Core.Runtime",
+    "Unity.RenderPipelines.Universal.Runtime",
+    "Convai.Shared.Unity"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "autoReferenced": true,
+  "defineConstraints": [
+    "CONVAI_SCENE_TAGGER_URP"
+  ],
+  "versionDefines": [
+    {
+      "name": "com.unity.render-pipelines.universal",
+      "expression": "[17.0.0,18.0.0)",
+      "define": "CONVAI_SCENE_TAGGER_URP"
+    }
+  ],
+  "noEngineReferences": false
+}

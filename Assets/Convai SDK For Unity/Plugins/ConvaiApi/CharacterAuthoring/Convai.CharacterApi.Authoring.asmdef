@@ -1,0 +1,19 @@
+{
+    "name": "Convai.CharacterApi.Authoring",
+    "rootNamespace": "Convai.CharacterApi",
+    "references": [
+        "Convai.Api.Transport",
+        "Convai.CharacterApi.Contracts",
+        "Convai.CharacterApi.Runtime",
+        "Newtonsoft.Json"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

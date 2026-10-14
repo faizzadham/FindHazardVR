@@ -1,0 +1,12 @@
+{
+  "fork": "https://github.com/Conv-AI/livekit-client-sdk-unity.git",
+  "tag": "convai-v2.0.0.9",
+  "commit": "8f728fa24b047db36a1b7f09d2c826981336872c",
+  "tree": "d76188d8cf1d3c0880aa3b680f15afd72b118573",
+  "executableFiles": [
+    "Scripts~/update-ffi-manifest.sh"
+  ],
+  "upstreamTag": "v2.0.0",
+  "ffiTag": "livekit-ffi/v0.12.69",
+  "vendoredOn": "2026-09-23"
+}

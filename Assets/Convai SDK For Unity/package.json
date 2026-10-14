@@ -1,0 +1,60 @@
+{
+  "name": "com.convai.convai-sdk-for-unity",
+  "displayName": "Convai SDK for Unity",
+  "version": "4.6.1",
+  "unity": "6000.0",
+  "unityRelease": "80f1",
+  "description": "Convai enables AI characters in games and virtual worlds to have human-like conversation capabilities. Add a backstory, knowledge bank, voice, and intelligence to your characters so they converse naturally with players and carry out actions.\nIncludes the complete conversation pipeline: Speech Recognition, Language Understanding and Generation, Text-to-Speech, Text-to-Action, and Lipsync.",
+  "keywords": [
+    "ai",
+    "npc",
+    "conversation",
+    "character",
+    "speech",
+    "dialogue",
+    "convai",
+    "voice",
+    "lipsync",
+    "multi-character",
+    "multiplayer"
+  ],
+  "dependencies": {
+    "com.unity.ai.inference": "2.2.1",
+    "com.unity.nuget.newtonsoft-json": "3.2.2",
+    "com.unity.ugui": "2.0.0",
+    "com.unity.inputsystem": "1.19.0",
+    "com.unity.modules.ai": "1.0.0",
+    "com.unity.modules.xr": "1.0.0"
+  },
+  "author": {
+    "name": "Convai",
+    "url": "https://www.convai.com",
+    "email": "support@convai.com"
+  },
+  "samples": [
+    {
+      "displayName": "Basic Sample",
+      "description": "A simple sample with core Convai SDK setup and interaction flow using a non-humanoid character.",
+      "path": "Samples~/BasicSample"
+    },
+    {
+      "displayName": "LipSync Sample",
+      "description": "A sample with a high-quality character and real-time LipSync for immersive conversations.",
+      "path": "Samples~/LipSyncSample"
+    },
+    {
+      "displayName": "Multi-Character Sample",
+      "description": "A shared-room sample demonstrating multiple Convai characters, interaction targeting, transcript UI, and runtime roster changes. Import the LipSync Sample first for the shared Sofia character assets.",
+      "path": "Samples~/MultiCharacterSample"
+    },
+    {
+      "displayName": "Scene Auto Tagger",
+      "description": "An authoring walkthrough with a generated fixture scene for discovery, captures, corrections, retakes, duplicate groups and protected Apply.",
+      "path": "Samples~/SceneTagger"
+    }
+  ],
+  "changelogUrl": "https://docs.convai.com/unity/changelog",
+  "documentationUrl": "https://docs.convai.com/api-docs/plugins-and-integrations/convai-unity-sdk",
+  "licensesUrl": "https://convai.com/tos",
+  "license": "SEE LICENSE IN LICENSE.txt"
+}

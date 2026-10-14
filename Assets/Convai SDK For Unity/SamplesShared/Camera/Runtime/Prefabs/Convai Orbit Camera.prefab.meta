@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c0ca10001111222233334444555566e0
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 235621
+  packageName: NPC AI Engine - Dialog, actions, voice and lipsync - Convai
+  packageVersion: 4.6.1
+  assetPath: Assets/Convai SDK For Unity/SamplesShared/Camera/Runtime/Prefabs/Convai
+    Orbit Camera.prefab
+  uploadId: 1006180

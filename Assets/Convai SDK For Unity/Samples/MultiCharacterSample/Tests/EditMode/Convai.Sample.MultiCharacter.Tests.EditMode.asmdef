@@ -1,0 +1,22 @@
+{
+    "name": "Convai.Sample.MultiCharacter.Tests.EditMode",
+    "rootNamespace": "Convai.Sample.MultiCharacter.Tests.EditMode",
+    "references": [
+        "Convai.Sample.MultiCharacter"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d15fdc7f985ec4640be192e63c9c2a8b, type: 3}
+  m_Name: Convai_Sofia_Emotion
+  m_EditorClassIdentifier: 
+  taxonomy: {fileID: 0}
+  lerpSpeed: 5.5
+  decaySpeed: 1.5
+  intensityOffset: 0
+  prosodyCoupling: 0.3
+  microBurstEnabled: 1
+  microBurstDuration: 0.28
+  microBurstOvershoot: 1.3
+  microBurstThreshold: 0.16
+  baselineEmotionLabel: joy
+  baselineIntensity: 0.55
+  expressiveness:
+  - label: joy
+    gain: 1.45
+  - label: trust
+    gain: 1.3
+  - label: sadness
+    gain: 0.8
+  - label: anger
+    gain: 0.75
+  emotionDynamics:
+  - label: joy
+    attackSpeed: 6
+    decaySpeed: 1.5
+  - label: sadness
+    attackSpeed: 5.5
+    decaySpeed: 1.2
+  moodDriftEnabled: 1
+  moodDriftRate: 0.08
+  moodRecoveryRate: 0.12
+  moodDriftMaxIntensity: 0.22
+  contagionEnabled: 1
+  contagionStrength: 0.3
+  contagionRadius: 4
+  contagionMaxIntensity: 0.18
+  enableEmotionBlending: 1
+  emotionSwitchDwell: 0.35
+  emotionSwitchMargin: 0.15
+  complementBlendScale: 0.4
+  maxSimultaneousEmotions: 2
+  microExpressionsEnabled: 1
+  microExpressionAmplitude: 0.18
+  speechAccentStrength: 0.35
+  microExpressionStillness: 0.4
+  listeningReactionStrength: 0.35
+  thinkingReactionStrength: 0.3
+  reactingAccentStrength: 0.3
+  interruptedFlinchStrength: 0.3
+  expressionRecipes: []
+  materialBinding:
+    slots: []
