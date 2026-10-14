@@ -1,7 +1,7 @@
 {
     "Port": 8095,
     "RequestTimeoutSeconds": 10,
-    "AutoStartServer": true,
+    "AutoStartServer": false,
     "AllowBatchModeServer": false,
     "EnableInfoLogs": false,
     "NpmExecutablePath": "",
