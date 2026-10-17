@@ -101,7 +101,14 @@ public class LaravelApiBridge : MonoBehaviour
             list.Add(usbEndpoint);
         }
 
-        // 3. Direct Wi-Fi Apache Port 80 (Always allowed by Windows Firewall)
+        // 3. Localhost Apache Port 80 (Works on PC XR Simulator with XAMPP Apache)
+        string localApacheEndpoint = "http://127.0.0.1/laravel/FindHazardAdmin/public/api/" + endpoint;
+        if (!list.Contains(localApacheEndpoint))
+        {
+            list.Add(localApacheEndpoint);
+        }
+
+        // 4. Direct Wi-Fi Apache Port 80 (Used for standalone Quest 3 over Wi-Fi)
         string apacheEndpoint = primaryLanUrl.TrimEnd('/') + "/" + endpoint;
         if (!list.Contains(apacheEndpoint))
         {
