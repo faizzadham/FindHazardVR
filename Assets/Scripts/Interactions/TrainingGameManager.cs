@@ -280,7 +280,12 @@ public class TrainingGameManager : MonoBehaviour
             }
         }
 
-        Debug.Log($"<color=yellow>[TrainingGameManager] Session Finished! Found: {currentScore}/{totalHazards}, Missed: {missedHazards.Count}, Wrong Clicks: {wrongClicks}, Time: {timeTaken:F1}s</color>");
+        // Calculate Clamped Score Percentage: Base Score - (Wrong Clicks * 5%)
+        float baseScore = totalHazards > 0 ? ((float)currentScore / totalHazards) * 100f : 0f;
+        float penalty = wrongClicks * 5f;
+        int finalClampedScore = Mathf.RoundToInt(Mathf.Clamp(baseScore - penalty, 0f, 100f));
+
+        Debug.Log($"<color=yellow>[TrainingGameManager] Session Finished! Found: {currentScore}/{totalHazards}, Missed: {missedHazards.Count}, Wrong Clicks: {wrongClicks}, Final Score: {finalClampedScore}%, Time: {timeTaken:F1}s</color>");
 
         // 1. Hide in-game HUD
         if (playerHUDCanvas != null)
@@ -288,18 +293,18 @@ public class TrainingGameManager : MonoBehaviour
             playerHUDCanvas.SetActive(false);
         }
 
-        // 2. Display in-VR evaluation results screen
+        // 2. Display in-VR evaluation results screen (with wrongClicks for the 4th card & penalty calculation)
         if (evaluationResultUI != null)
         {
-            evaluationResultUI.ShowResults(currentScore, totalHazards, timeTaken);
+            evaluationResultUI.ShowResults(currentScore, totalHazards, wrongClicks, timeTaken);
         }
 
         // 3. Dispatch session telemetry to Laravel backend
-        LaravelApiBridge bridge = LaravelApiBridge.Instance;
+        LaravelApiBridge bridge = LaravelApiBridge.Instance != null ? LaravelApiBridge.Instance : GetComponent<LaravelApiBridge>();
         if (bridge != null)
         {
             bridge.SendSessionResult(
-                score: totalHazards > 0 ? Mathf.RoundToInt(((float)currentScore / totalHazards) * 100f) : 0,
+                score: finalClampedScore,
                 found: currentScore,
                 missed: missedHazards.Count,
                 wrong: wrongClicks,

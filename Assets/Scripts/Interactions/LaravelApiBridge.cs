@@ -52,8 +52,8 @@ public class LaravelApiBridge : MonoBehaviour
     }
 
     [Header("API Server Host Configuration")]
-    [Tooltip("Primary LAN IP via Apache port 80 (Always allowed by firewall, works instantly over campus Wi-Fi)")]
-    [SerializeField] private string primaryLanUrl = "http://10.101.129.153/laravel/FindHazardAdmin/public/api";
+    [Tooltip("Primary LAN IP via Apache port 80 (Always allowed by firewall, works instantly over campus/home Wi-Fi)")]
+    [SerializeField] private string primaryLanUrl = "http://192.168.1.11/laravel/FindHazardAdmin/public/api";
 
     [Tooltip("USB Reverse Tunnel localhost (Works instantly via ADB reverse over USB cable or ADB WiFi)")]
     [SerializeField] private string usbLocalhostUrl = "http://127.0.0.1:8000/api";
@@ -91,31 +91,39 @@ public class LaravelApiBridge : MonoBehaviour
         // 1. If we already found a working URL in this session, prioritize it immediately
         if (!string.IsNullOrEmpty(lastWorkingBaseUrl))
         {
-            list.Add(lastWorkingBaseUrl.TrimEnd('/') + "/" + endpoint);
+            AddCandidate(list, lastWorkingBaseUrl, endpoint);
         }
 
-        // 2. USB Reverse Tunnel (127.0.0.1:8000) - Instantaneous (0.1ms) over USB connection
-        string usbEndpoint = usbLocalhostUrl.TrimEnd('/') + "/" + endpoint;
-        if (!list.Contains(usbEndpoint))
-        {
-            list.Add(usbEndpoint);
-        }
+        // 2. Localhost Apache Port 80 (Instant on PC XR Simulator with XAMPP Apache)
+        AddCandidate(list, "http://127.0.0.1/laravel/FindHazardAdmin/public/api", endpoint);
 
-        // 3. Localhost Apache Port 80 (Works on PC XR Simulator with XAMPP Apache)
-        string localApacheEndpoint = "http://127.0.0.1/laravel/FindHazardAdmin/public/api/" + endpoint;
-        if (!list.Contains(localApacheEndpoint))
-        {
-            list.Add(localApacheEndpoint);
-        }
+        // 3. Localhost Port 8000 (Instant on PC XR Simulator with php artisan serve or Quest USB tunnel)
+        AddCandidate(list, "http://127.0.0.1:8000/api", endpoint);
 
-        // 4. Direct Wi-Fi Apache Port 80 (Used for standalone Quest 3 over Wi-Fi)
-        string apacheEndpoint = primaryLanUrl.TrimEnd('/') + "/" + endpoint;
-        if (!list.Contains(apacheEndpoint))
-        {
-            list.Add(apacheEndpoint);
-        }
+        // 4. Configured USB Localhost from Inspector (if customized)
+        AddCandidate(list, usbLocalhostUrl, endpoint);
+
+        // 5. Configured LAN URL from Inspector (Wi-Fi for Quest 3)
+        AddCandidate(list, primaryLanUrl, endpoint);
+
+        // 6. Current Wi-Fi LAN IP on Apache Port 80
+        AddCandidate(list, "http://192.168.1.11/laravel/FindHazardAdmin/public/api", endpoint);
+
+        // 7. Current Wi-Fi LAN IP on Port 8000
+        AddCandidate(list, "http://192.168.1.11:8000/api", endpoint);
 
         return list;
+    }
+
+    private void AddCandidate(List<string> list, string baseUrl, string endpoint)
+    {
+        if (string.IsNullOrWhiteSpace(baseUrl)) return;
+        string cleanBase = baseUrl.Trim().TrimEnd('/');
+        string fullUrl = cleanBase + "/" + endpoint.TrimStart('/');
+        if (!list.Contains(fullUrl))
+        {
+            list.Add(fullUrl);
+        }
     }
 
     /// <summary>
@@ -251,10 +259,17 @@ public class LaravelApiBridge : MonoBehaviour
                 if (request.result == UnityWebRequest.Result.Success)
                 {
                     // Cache the base URL prefix for future requests
-                    int lastSlash = targetUrl.LastIndexOf('/');
-                    if (lastSlash > 0)
+                    if (targetUrl.EndsWith(endpoint))
                     {
-                        lastWorkingBaseUrl = targetUrl.Substring(0, lastSlash);
+                        lastWorkingBaseUrl = targetUrl.Substring(0, targetUrl.Length - endpoint.Length).TrimEnd('/');
+                    }
+                    else
+                    {
+                        int lastSlash = targetUrl.LastIndexOf('/');
+                        if (lastSlash > 0)
+                        {
+                            lastWorkingBaseUrl = targetUrl.Substring(0, lastSlash);
+                        }
                     }
                     Debug.Log($"<color=green>[LaravelApiBridge] Successfully synced '{endpoint}' to {targetUrl}: {request.downloadHandler.text}</color>");
                     yield break;

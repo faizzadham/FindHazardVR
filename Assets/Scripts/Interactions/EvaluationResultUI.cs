@@ -1,108 +1,218 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
 public class EvaluationResultUI : MonoBehaviour
 {
-    [Header("Panel Root")]
-    [Tooltip("Drag ResultSummaryRoot here")]
-    public GameObject resultSummaryRoot;
+    [Header("Main Panel Root")]
+    public GameObject resultCanvasRoot;
 
-    [Header("UI Text Displays")]
+    [Header("Left Card: Score Ring & Tier Text")]
+    [Tooltip("Drag Ring_Fill here")]
+    public Image scoreRingFill;
+    [Tooltip("Drag Text_Percentage here")]
     public TextMeshProUGUI percentageText;
-    public TextMeshProUGUI badgeTitleText;
-    public TextMeshProUGUI badgeSubtitleText;
-    public TextMeshProUGUI hazardsFoundText;
-    public TextMeshProUGUI missedHazardsText;
-    public TextMeshProUGUI timeTakenText;
+    [Tooltip("Drag Text_SlangTitle here")]
+    public TextMeshProUGUI tierTitleText;
+    [Tooltip("Drag Text_Description here")]
+    public TextMeshProUGUI tierDescriptionText;
+
+    [Header("Right Cards: 4 Telemetry Metrics")]
+    public TextMeshProUGUI hazardFoundValueText;
+    public TextMeshProUGUI hazardMissedValueText;
+    public TextMeshProUGUI missClickValueText;
+    public TextMeshProUGUI timeTakenValueText;
+
+    [Header("Action Buttons")]
+    public Button replayButton;
+    public Button exitButton;
+    public string startingSceneName = "StartingPoint";
 
     [Header("Audio Feedback")]
-    public AudioSource audioSource;
-    public AudioClip perfectScoreSound;
-    public AudioClip standardFinishSound;
+    [Tooltip("Audio source to play results completion sound")]
+    public AudioSource resultAudioSource;
+    [Tooltip("Sound effect played when the evaluation results appear")]
+    public AudioClip completionSoundClip;
 
-    [Header("Scene Navigation")]
-    public string mainMenuSceneName = "StartingPoint";
+    [Header("Tier Colors (Matches Web Dashboard)")]
+    public Color lockedInColor = new Color(0.125f, 0.788f, 0.47f, 1f);   // Emerald (#20C978)
+    public Color greatColor = new Color(0.22f, 0.74f, 0.97f, 1f);        // Sky Blue (#38BDF8)
+    public Color validEffortColor = new Color(0.96f, 0.62f, 0.04f, 1f);  // Amber (#F59E0B)
+    public Color needsReviewColor = new Color(0.94f, 0.27f, 0.27f, 1f);  // Rose Red (#EF4444)
 
-    public void ShowResults(int found, int total, float timeTaken)
+    [Header("Ring Animation")]
+    public float ringAnimationDuration = 1.0f;
+
+    private void Awake()
     {
-        Debug.Log($"<color=cyan>[EvaluationResultUI] Displaying results: {found}/{total}</color>");
-
-        // 1. Ensure the parent canvas GameObject is active
-        gameObject.SetActive(true);
-
-        // 2. Turn ON ResultSummaryRoot so the card becomes visible
-        if (resultSummaryRoot != null)
+        if (resultAudioSource == null)
         {
-            resultSummaryRoot.SetActive(true);
-        }
-        else
-        {
-            // Fallback: auto-find and activate child named ResultSummaryRoot
-            Transform child = transform.Find("ResultSummaryRoot");
-            if (child != null) child.gameObject.SetActive(true);
+            resultAudioSource = GetComponent<AudioSource>();
         }
 
-        // 3. Score calculation
-        float percentage = total > 0 ? ((float)found / total) * 100f : 0f;
-        int missed = Mathf.Max(0, total - found);
-
-        // 4. Update UI text displays
-        if (percentageText != null) percentageText.text = $"{Mathf.RoundToInt(percentage)}%";
-        if (hazardsFoundText != null) hazardsFoundText.text = $"{found}/{total}";
-        if (missedHazardsText != null) missedHazardsText.text = missed.ToString();
-
-        if (timeTakenText != null)
+        if (replayButton != null)
         {
-            int minutes = Mathf.FloorToInt(timeTaken / 60);
-            int seconds = Mathf.FloorToInt(timeTaken % 60);
-            timeTakenText.text = string.Format("{0}:{1:00}", minutes, seconds);
+            replayButton.onClick.RemoveListener(OnReplayClicked);
+            replayButton.onClick.AddListener(OnReplayClicked);
         }
 
-        // 5. Evaluation title and sound trigger
-        if (found >= total && total > 0)
+        if (exitButton != null)
         {
-            if (badgeTitleText != null) badgeTitleText.text = "Locked In";
-            if (badgeSubtitleText != null) badgeSubtitleText.text = "Flawless inspection! All warehouse hazards identified.";
-            PlayAudio(perfectScoreSound);
+            exitButton.onClick.RemoveListener(OnExitClicked);
+            exitButton.onClick.AddListener(OnExitClicked);
         }
-        else if (percentage >= 80f)
+
+        if (resultCanvasRoot != null)
         {
-            if (badgeTitleText != null) badgeTitleText.text = "Great";
-            if (badgeSubtitleText != null) badgeSubtitleText.text = $"You scored higher than {Mathf.RoundToInt(percentage)}% of trainees.";
-            PlayAudio(standardFinishSound);
-        }
-        else
-        {
-            if (badgeTitleText != null) badgeTitleText.text = "Needs Review";
-            if (badgeSubtitleText != null) badgeSubtitleText.text = "Significant hazards were missed. Retraining recommended.";
-            PlayAudio(standardFinishSound);
+            resultCanvasRoot.SetActive(false);
         }
     }
 
-    private void PlayAudio(AudioClip clip)
+    /// <summary>
+    /// Displays the evaluation screen using the 4-tier FindHazard Admin formula.
+    /// </summary>
+    public void ShowResults(int found, int total, int wrongClicks, float timeTaken)
     {
-        if (clip == null) return;
-
-        if (audioSource != null)
+        if (resultCanvasRoot != null)
         {
-            audioSource.PlayOneShot(clip);
+            resultCanvasRoot.SetActive(true);
         }
         else
         {
-            Vector3 soundPos = Camera.main != null ? Camera.main.transform.position : transform.position;
-            AudioSource.PlayClipAtPoint(clip, soundPos);
+            gameObject.SetActive(true);
         }
+
+        // Play completion/time finished sound effect
+        if (resultAudioSource != null && completionSoundClip != null)
+        {
+            resultAudioSource.PlayOneShot(completionSoundClip);
+        }
+
+        int missed = Mathf.Max(0, total - found);
+
+        // 1. Calculate Clamped Score Percentage: Base Score - (Wrong Clicks * 5%)
+        float baseScore = total > 0 ? ((float)found / total) * 100f : 0f;
+        float penalty = wrongClicks * 5f;
+        float finalPercentage = Mathf.Clamp(baseScore - penalty, 0f, 100f);
+        int displayPercentage = Mathf.RoundToInt(finalPercentage);
+
+        // 2. Determine 4-Tier Rating, Short Statement & Theme Color
+        string tierTitle;
+        string tierStatement;
+        Color activeTierColor;
+
+        if (finalPercentage >= 90f)
+        {
+            tierTitle = "Locked In";
+            tierStatement = "Master Inspector — Flawless hazard recognition and trigger discipline. Qualified for Autonomous Airside Duty.";
+            activeTierColor = lockedInColor;
+        }
+        else if (finalPercentage >= 80f)
+        {
+            tierTitle = "Great";
+            tierStatement = "Proficient Inspector — Meets the safety benchmark with controlled trigger discipline. Qualified for Standard Duty.";
+            activeTierColor = greatColor;
+        }
+        else if (finalPercentage >= 60f)
+        {
+            tierTitle = "Valid Effort";
+            tierStatement = "Developing Inspector — Spotted general hazards, but missed key threats or lost points to misclicks. Refresher required.";
+            activeTierColor = validEffortColor;
+        }
+        else
+        {
+            tierTitle = "Needs Review";
+            tierStatement = "Critical Retest — Critical hazard oversights or excessive false clicking. Mandatory simulator retraining required.";
+            activeTierColor = needsReviewColor;
+        }
+
+        // 3. Apply Left Card UI
+        if (percentageText != null)
+        {
+            percentageText.text = $"{displayPercentage}%";
+            percentageText.color = Color.white;
+        }
+
+        if (tierTitleText != null)
+        {
+            tierTitleText.text = tierTitle;
+            tierTitleText.color = activeTierColor;
+        }
+
+        if (tierDescriptionText != null)
+        {
+            tierDescriptionText.text = tierStatement;
+        }
+
+        if (scoreRingFill != null)
+        {
+            scoreRingFill.color = activeTierColor;
+            StopAllCoroutines();
+            StartCoroutine(AnimateScoreRing(finalPercentage / 100f));
+        }
+
+        // 4. Apply Right Stat Cards UI
+        if (hazardFoundValueText != null)
+        {
+            hazardFoundValueText.text = $"{found}/{total}";
+            hazardFoundValueText.color = lockedInColor;
+        }
+
+        if (hazardMissedValueText != null)
+        {
+            hazardMissedValueText.text = missed.ToString();
+            hazardMissedValueText.color = missed == 0 ? lockedInColor : needsReviewColor;
+        }
+
+        if (missClickValueText != null)
+        {
+            missClickValueText.text = wrongClicks.ToString();
+            missClickValueText.color = wrongClicks == 0 ? lockedInColor : needsReviewColor;
+        }
+
+        if (timeTakenValueText != null)
+        {
+            int minutes = Mathf.FloorToInt(timeTaken / 60f);
+            int seconds = Mathf.FloorToInt(timeTaken % 60f);
+            timeTakenValueText.text = string.Format("{0}:{1:00}", minutes, seconds);
+        }
+    }
+
+    /// <summary>
+    /// Backwards-compatible overload if called without wrongClicks.
+    /// </summary>
+    public void ShowResults(int found, int total, float timeTaken)
+    {
+        ShowResults(found, total, 0, timeTaken);
+    }
+
+    private IEnumerator AnimateScoreRing(float targetFill)
+    {
+        float elapsed = 0f;
+        scoreRingFill.fillAmount = 0f;
+
+        while (elapsed < ringAnimationDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / ringAnimationDuration);
+            float easedT = 1f - Mathf.Pow(1f - t, 3f);
+            scoreRingFill.fillAmount = Mathf.Lerp(0f, targetFill, easedT);
+            yield return null;
+        }
+
+        scoreRingFill.fillAmount = targetFill;
     }
 
     public void OnReplayClicked()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
     }
 
     public void OnExitClicked()
     {
-        LaravelApiBridge.Instance?.ClearActiveTrainee();
-        SceneManager.LoadScene(mainMenuSceneName);
+        SceneManager.LoadScene(startingSceneName);
     }
 }
