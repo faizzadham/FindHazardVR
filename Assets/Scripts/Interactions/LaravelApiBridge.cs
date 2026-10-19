@@ -53,13 +53,13 @@ public class LaravelApiBridge : MonoBehaviour
 
     [Header("API Server Host Configuration")]
     [Tooltip("Primary LAN IP via Apache port 80 (Always allowed by firewall, works instantly over campus/home Wi-Fi)")]
-    [SerializeField] private string primaryLanUrl = "http://192.168.1.11/laravel/FindHazardAdmin/public/api";
+    [SerializeField] private string primaryLanUrl = "http://10.101.129.153/laravel/FindHazardAdmin/public/api";
 
     [Tooltip("USB Reverse Tunnel localhost (Works instantly via ADB reverse over USB cable or ADB WiFi)")]
     [SerializeField] private string usbLocalhostUrl = "http://127.0.0.1:8000/api";
 
     [Tooltip("Timeout in seconds before an HTTP request times out")]
-    [SerializeField] private int requestTimeoutSeconds = 3;
+    [SerializeField] private int requestTimeoutSeconds = 2;
 
     // Caches the confirmed working URL to make all subsequent calls instant (0ms failover)
     private static string lastWorkingBaseUrl = null;
@@ -100,17 +100,39 @@ public class LaravelApiBridge : MonoBehaviour
         // 3. Localhost Port 8000 (Instant on PC XR Simulator with php artisan serve or Quest USB tunnel)
         AddCandidate(list, "http://127.0.0.1:8000/api", endpoint);
 
-        // 4. Configured USB Localhost from Inspector (if customized)
-        AddCandidate(list, usbLocalhostUrl, endpoint);
-
-        // 5. Configured LAN URL from Inspector (Wi-Fi for Quest 3)
+        // 4. Configured LAN URL from Inspector (Wi-Fi for Quest 3)
         AddCandidate(list, primaryLanUrl, endpoint);
 
-        // 6. Current Wi-Fi LAN IP on Apache Port 80
+        // 5. Campus Wi-Fi LAN IP on Apache Port 80 (GMI Campus)
+        AddCandidate(list, "http://10.101.129.153/laravel/FindHazardAdmin/public/api", endpoint);
+
+        // 6. Home Wi-Fi LAN IP on Apache Port 80 (Home Router)
         AddCandidate(list, "http://192.168.1.11/laravel/FindHazardAdmin/public/api", endpoint);
 
-        // 7. Current Wi-Fi LAN IP on Port 8000
+#if UNITY_EDITOR || UNITY_STANDALONE
+        // 7. Dynamic local host IPv4 detection (detects any new router / mobile hotspot IP automatically on PC)
+        try
+        {
+            string hostName = System.Net.Dns.GetHostName();
+            System.Net.IPAddress[] ips = System.Net.Dns.GetHostAddresses(hostName);
+            foreach (var ip in ips)
+            {
+                if (ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork && !System.Net.IPAddress.IsLoopback(ip))
+                {
+                    AddCandidate(list, $"http://{ip}/laravel/FindHazardAdmin/public/api", endpoint);
+                    AddCandidate(list, $"http://{ip}:8000/api", endpoint);
+                }
+            }
+        }
+        catch { }
+#endif
+
+        // 8. Port 8000 fallbacks
+        AddCandidate(list, "http://10.101.129.153:8000/api", endpoint);
         AddCandidate(list, "http://192.168.1.11:8000/api", endpoint);
+
+        // 9. Configured USB Localhost from Inspector (if customized)
+        AddCandidate(list, usbLocalhostUrl, endpoint);
 
         return list;
     }

@@ -255,9 +255,6 @@ namespace Convai.Runtime.Presentation.Views.Transcript
                     }
                 }
             }
-
-            // 3. Hardware audio fallback
-            AudioListener.pause = mute;
         }
 
         private void OnEnable()

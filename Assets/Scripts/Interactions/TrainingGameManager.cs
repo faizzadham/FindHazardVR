@@ -40,6 +40,27 @@ public class TrainingGameManager : MonoBehaviour
     [Tooltip("Fallback display duration if no start audio clip is assigned")]
     public float defaultStartDisplayDuration = 1.25f;
 
+    [Header("Warehouse Background Ambience")]
+    [Tooltip("AudioSource that plays the ambient warehouse loop")]
+    public AudioSource warehouseBGMAudioSource;
+
+    [Tooltip("Ambient background track (e.g., large warehouse ventilation drone loop)")]
+    public AudioClip warehouseAmbientClip;
+
+    [Tooltip("Smoothly fade out BGM when the session ends")]
+    public bool fadeOutOnEnd = true;
+    public float bgmFadeOutDuration = 1.0f;
+
+    [Header("Session End Audio Cues")]
+    [Tooltip("AudioSource used to play victory or timeout sound effects")]
+    public AudioSource gameAudioSource;
+
+    [Tooltip("Sound clip played when all hazards are successfully identified before time runs out")]
+    public AudioClip allHazardsFoundClip;
+
+    [Tooltip("Sound clip played when the inspection timer reaches 0:00 (Time Up / Buzzer)")]
+    public AudioClip timerFinishedClip;
+
     [Header("Player Restrictions")]
     public GameObject locomotionSystem;
     public GameObject[] rayInteractors;
@@ -78,6 +99,11 @@ public class TrainingGameManager : MonoBehaviour
         if (countdownAudioSource == null)
         {
             countdownAudioSource = GetComponent<AudioSource>();
+        }
+
+        if (gameAudioSource == null)
+        {
+            gameAudioSource = GetComponent<AudioSource>();
         }
 
         // Auto-register all authentic hazards in the warehouse scene
@@ -119,6 +145,13 @@ public class TrainingGameManager : MonoBehaviour
         {
             timeRemaining = 0;
             UpdateTimerDisplay();
+
+            // Play timeout / buzzer sound when the timer finishes
+            if (gameAudioSource != null && timerFinishedClip != null)
+            {
+                gameAudioSource.PlayOneShot(timerFinishedClip);
+            }
+
             EndTrainingSession();
         }
     }
@@ -206,7 +239,18 @@ public class TrainingGameManager : MonoBehaviour
         foundHazards.Clear();
         UpdateHUDDisplays();
 
-        // Dispatch initial active state to Laravel live monitor
+        // 1. Start warehouse background ambience after countdown finishes
+        if (warehouseBGMAudioSource != null)
+        {
+            if (warehouseAmbientClip != null)
+            {
+                warehouseBGMAudioSource.clip = warehouseAmbientClip;
+            }
+            warehouseBGMAudioSource.loop = true;
+            warehouseBGMAudioSource.Play();
+        }
+
+        // 2. Dispatch initial active state to Laravel live monitor
         string trainee = PlayerPrefs.GetString("CurrentTrainee", "Anonymous_Worker");
         LaravelApiBridge.Instance?.SendHazardUpdate(trainee, 0, foundHazards, wrongClicks, 0f);
     }
@@ -231,17 +275,20 @@ public class TrainingGameManager : MonoBehaviour
             float timeElapsed = sessionDuration - timeRemaining;
             LaravelApiBridge.Instance?.SendHazardUpdate(trainee, currentScore, foundHazards, wrongClicks, timeElapsed);
 
-            // Automatically finish session if all hazards are found
+            // Automatically finish session if all hazards are found early
             if (currentScore >= totalHazards)
             {
+                // Play all-hazards-found victory sound cue
+                if (gameAudioSource != null && allHazardsFoundClip != null)
+                {
+                    gameAudioSource.PlayOneShot(allHazardsFoundClip);
+                }
+
                 EndTrainingSession();
             }
         }
     }
 
-    /// <summary>
-    /// Fallback overload for legacy calls without name arguments.
-    /// </summary>
     public void AddHazardFound()
     {
         AddHazardFound("Hazard Object");
@@ -270,6 +317,19 @@ public class TrainingGameManager : MonoBehaviour
 
         float timeTaken = sessionDuration - timeRemaining;
 
+        // 1. Stop or fade out warehouse background ambient loop
+        if (warehouseBGMAudioSource != null && warehouseBGMAudioSource.isPlaying)
+        {
+            if (fadeOutOnEnd)
+            {
+                StartCoroutine(FadeOutBGM(bgmFadeOutDuration));
+            }
+            else
+            {
+                warehouseBGMAudioSource.Stop();
+            }
+        }
+
         // Compile list of missed hazards
         List<string> missedHazards = new List<string>();
         foreach (string h in allSceneHazards)
@@ -280,26 +340,26 @@ public class TrainingGameManager : MonoBehaviour
             }
         }
 
-        // Calculate Clamped Score Percentage: Base Score - (Wrong Clicks * 5%)
+        // Calculate Clamped Score: Base Score - (Wrong Clicks * 5%)
         float baseScore = totalHazards > 0 ? ((float)currentScore / totalHazards) * 100f : 0f;
         float penalty = wrongClicks * 5f;
         int finalClampedScore = Mathf.RoundToInt(Mathf.Clamp(baseScore - penalty, 0f, 100f));
 
         Debug.Log($"<color=yellow>[TrainingGameManager] Session Finished! Found: {currentScore}/{totalHazards}, Missed: {missedHazards.Count}, Wrong Clicks: {wrongClicks}, Final Score: {finalClampedScore}%, Time: {timeTaken:F1}s</color>");
 
-        // 1. Hide in-game HUD
+        // 2. Hide in-game HUD
         if (playerHUDCanvas != null)
         {
             playerHUDCanvas.SetActive(false);
         }
 
-        // 2. Display in-VR evaluation results screen (with wrongClicks for the 4th card & penalty calculation)
+        // 3. Display in-VR evaluation results screen
         if (evaluationResultUI != null)
         {
             evaluationResultUI.ShowResults(currentScore, totalHazards, wrongClicks, timeTaken);
         }
 
-        // 3. Dispatch session telemetry to Laravel backend
+        // 4. Dispatch session telemetry to Laravel backend
         LaravelApiBridge bridge = LaravelApiBridge.Instance != null ? LaravelApiBridge.Instance : GetComponent<LaravelApiBridge>();
         if (bridge != null)
         {
@@ -317,6 +377,22 @@ public class TrainingGameManager : MonoBehaviour
         {
             Debug.LogWarning("[TrainingGameManager] LaravelApiBridge component not found. Telemetry not dispatched.");
         }
+    }
+
+    private IEnumerator FadeOutBGM(float duration)
+    {
+        float startVol = warehouseBGMAudioSource.volume;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            warehouseBGMAudioSource.volume = Mathf.Lerp(startVol, 0f, elapsed / duration);
+            yield return null;
+        }
+
+        warehouseBGMAudioSource.Stop();
+        warehouseBGMAudioSource.volume = startVol;
     }
 
     private void SetPlayerInputState(bool isEnabled)
