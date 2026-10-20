@@ -106,13 +106,13 @@ public class EvaluationResultUI : MonoBehaviour
         if (finalPercentage >= 90f)
         {
             tierTitle = "Locked In";
-            tierStatement = "Master Inspector — Flawless hazard recognition and trigger discipline. Qualified for Autonomous Airside Duty.";
+            tierStatement = "Master Inspector — Flawless hazard recognition and trigger discipline.";
             activeTierColor = lockedInColor;
         }
         else if (finalPercentage >= 80f)
         {
             tierTitle = "Great";
-            tierStatement = "Proficient Inspector — Meets the safety benchmark with controlled trigger discipline. Qualified for Standard Duty.";
+            tierStatement = "Proficient Inspector — Meets the safety benchmark with controlled trigger discipline.";
             activeTierColor = greatColor;
         }
         else if (finalPercentage >= 60f)

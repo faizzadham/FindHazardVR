@@ -101,7 +101,8 @@ public class TrainingGameManager : MonoBehaviour
             countdownAudioSource = GetComponent<AudioSource>();
         }
 
-        if (gameAudioSource == null)
+        // Prevent game SFX from sharing the fading BGM AudioSource
+        if (gameAudioSource == null || gameAudioSource == warehouseBGMAudioSource)
         {
             gameAudioSource = GetComponent<AudioSource>();
         }
