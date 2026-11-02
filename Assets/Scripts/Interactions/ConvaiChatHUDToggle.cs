@@ -4,37 +4,54 @@ using TMPro;
 
 public class ConvaiChatHUDToggle : MonoBehaviour
 {
-    [Header("Target Chat UI")]
-    [Tooltip("Drag the Convai chat GameObject/Canvas here")]
+    [Header("Target UI & AI Objects")]
+    [Tooltip("The visual Convai Chat Canvas/Panel")]
     public GameObject convaiChatUI;
+
+    [Tooltip("Drag AI_Chatbox here")]
+    public GameObject convaiNPCBrain;
+
+    [Header("Audio Output")]
+    [Tooltip("Drag the AudioSource that plays Chatbot's voice (on AI_Chatbox)")]
+    public AudioSource missAnisAudioSource;
 
     [Header("Button References")]
     public Button toggleButton;
     public TextMeshProUGUI buttonLabel;
 
     [Header("Label Configuration")]
-    [Tooltip("Text displayed on the button when the chat box is open")]
-    public string openText = "Close";
+    public string openText = "CLOSE";
 
     private string originalLabel;
     private bool isChatOpen = false;
+    private MonoBehaviour convaiNPCComponent;
 
     private void Awake()
     {
         if (toggleButton == null)
-        {
             toggleButton = GetComponent<Button>();
-        }
 
         if (buttonLabel == null && toggleButton != null)
-        {
             buttonLabel = toggleButton.GetComponentInChildren<TextMeshProUGUI>();
-        }
 
-        // Cache your original button text so it is never lost or overwritten
         if (buttonLabel != null)
-        {
             originalLabel = buttonLabel.text;
+
+        if (convaiNPCBrain != null)
+        {
+            // Cache the AudioSource on the character if not manually dragged
+            if (missAnisAudioSource == null)
+                missAnisAudioSource = convaiNPCBrain.GetComponentInChildren<AudioSource>();
+
+            // Find the ConvaiNPC script dynamically
+            foreach (var comp in convaiNPCBrain.GetComponents<MonoBehaviour>())
+            {
+                if (comp.GetType().Name.Contains("ConvaiNPC"))
+                {
+                    convaiNPCComponent = comp;
+                    break;
+                }
+            }
         }
 
         if (toggleButton != null)
@@ -46,7 +63,7 @@ public class ConvaiChatHUDToggle : MonoBehaviour
 
     private void Start()
     {
-        // Start closed without affecting your button background or colors
+        // Enforce silent lock on scene start
         SetChatVisibility(false);
     }
 
@@ -59,18 +76,36 @@ public class ConvaiChatHUDToggle : MonoBehaviour
     {
         isChatOpen = visible;
 
-        // Toggle chat UI visibility
+        // 1. Visual UI Window
         if (convaiChatUI != null)
-        {
             convaiChatUI.SetActive(isChatOpen);
+
+        // 2. Hard Mute & Audio Cut
+        if (missAnisAudioSource != null)
+        {
+            if (!isChatOpen)
+            {
+                missAnisAudioSource.Stop();
+                missAnisAudioSource.mute = true;
+            }
+            else
+            {
+                missAnisAudioSource.mute = false;
+            }
         }
 
-        // Only swap the label text; leave all image backgrounds and colors untouched
+        // 3. Freeze/Unfreeze Convai Processing Loop
+        if (convaiNPCComponent != null)
+        {
+            convaiNPCComponent.enabled = isChatOpen;
+        }
+
+        // 4. Update Button Label
         if (buttonLabel != null)
         {
             buttonLabel.text = isChatOpen ? openText : originalLabel;
         }
 
-        Debug.Log($"<color=cyan>[Convai UI] Chat HUD is now {(isChatOpen ? "OPEN" : "CLOSED")}.</color>");
+        Debug.Log($"<color=cyan>[Convai Gate] Comms {(isChatOpen ? "ACTIVE & UNMUTED" : "LOCKED & HARD-MUTED")}</color>");
     }
 }

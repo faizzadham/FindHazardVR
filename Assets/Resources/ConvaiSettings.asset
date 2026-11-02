@@ -21,7 +21,7 @@ MonoBehaviour:
   _authTokenHeaders: []
   _apiEnvironment: 0
   _apiMode: 1
-  _characterWorkspaceId: 9c395133-6c51-492d-b513-17351f679143
+  _characterWorkspaceId: 1b9d4e40-7aad-4cae-91a3-610b3f4617e3
   _customCharacterApiBaseUrl: 
   _serverUrl: https://live.convai.com
   _customRestBaseUrl: 
