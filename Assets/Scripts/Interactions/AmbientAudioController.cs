@@ -17,7 +17,11 @@ public class AmbientAudioController : MonoBehaviour
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
-        audioSource.volume = 0f; // Start silent for fade-in
+        if (audioSource != null)
+        {
+            audioSource.loop = true; // Ensure background ambience continuously loops without stopping
+            audioSource.volume = 0f; // Start silent for fade-in
+        }
     }
 
     private void Start()

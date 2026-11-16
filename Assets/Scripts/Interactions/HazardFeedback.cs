@@ -169,14 +169,8 @@ public class HazardFeedback : MonoBehaviour
     {
         if (clip == null) return;
 
-        if (audioSource != null)
-        {
-            audioSource.PlayOneShot(clip, volume);
-        }
-        else
-        {
-            Vector3 soundPos = Camera.main != null ? Camera.main.transform.position : transform.position;
-            AudioSource.PlayClipAtPoint(clip, soundPos, volume);
-        }
+        // Always play feedback directly at the player's head position so clicking distant hazards is never silent
+        Vector3 soundPos = Camera.main != null ? Camera.main.transform.position : transform.position;
+        AudioSource.PlayClipAtPoint(clip, soundPos, volume);
     }
 }
