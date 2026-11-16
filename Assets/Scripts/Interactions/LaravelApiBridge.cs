@@ -53,7 +53,7 @@ public class LaravelApiBridge : MonoBehaviour
 
     [Header("API Server Host Configuration")]
     [Tooltip("Primary LAN IP via Apache port 80 (Always allowed by firewall, works instantly over campus/home Wi-Fi)")]
-    [SerializeField] private string primaryLanUrl = "http://10.100.132.191/laravel/FindHazardAdmin/public/api";
+    [SerializeField] private string primaryLanUrl = "http://10.100.141.108/laravel/FindHazardAdmin/public/api";
 
     [Tooltip("USB Reverse Tunnel localhost (Works instantly via ADB reverse over USB cable or ADB WiFi)")]
     [SerializeField] private string usbLocalhostUrl = "http://127.0.0.1:8000/api";
@@ -104,10 +104,12 @@ public class LaravelApiBridge : MonoBehaviour
         AddCandidate(list, primaryLanUrl, endpoint);
 
         // 5. Current Wi-Fi LAN IP on Apache Port 80 & Port 8000 (GMI Campus current IP)
-        AddCandidate(list, "http://10.100.132.191/laravel/FindHazardAdmin/public/api", endpoint);
-        AddCandidate(list, "http://10.100.132.191:8000/api", endpoint);
+        AddCandidate(list, "http://10.100.141.108/laravel/FindHazardAdmin/public/api", endpoint);
+        AddCandidate(list, "http://10.100.141.108:8000/api", endpoint);
 
         // 6. Previous Campus Wi-Fi LAN IP on Apache Port 80 (GMI Campus fallback)
+        AddCandidate(list, "http://10.100.132.191/laravel/FindHazardAdmin/public/api", endpoint);
+        AddCandidate(list, "http://10.100.132.191:8000/api", endpoint);
         AddCandidate(list, "http://10.101.129.153/laravel/FindHazardAdmin/public/api", endpoint);
         AddCandidate(list, "http://10.101.129.153:8000/api", endpoint);
 
