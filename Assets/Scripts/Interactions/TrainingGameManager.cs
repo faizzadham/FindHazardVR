@@ -176,6 +176,8 @@ public class TrainingGameManager : MonoBehaviour
         // 3. Play tickkk.WAV track once from the start (5.068s)
         if (countdownAudioSource != null && countdownAudioTrack != null)
         {
+            countdownAudioSource.spatialBlend = 0f; // Force 2D stereo directly into ears
+            countdownAudioSource.volume = 1f;
             countdownAudioSource.PlayOneShot(countdownAudioTrack);
         }
 
@@ -210,6 +212,8 @@ public class TrainingGameManager : MonoBehaviour
         // 6. Play Start.wav audio cue
         if (countdownAudioSource != null && countdownStartClip != null)
         {
+            countdownAudioSource.spatialBlend = 0f;
+            countdownAudioSource.volume = 1f;
             countdownAudioSource.PlayOneShot(countdownStartClip);
             displayDuration = Mathf.Max(countdownStartClip.length, defaultStartDisplayDuration);
         }
@@ -248,6 +252,8 @@ public class TrainingGameManager : MonoBehaviour
                 warehouseBGMAudioSource.clip = warehouseAmbientClip;
             }
             warehouseBGMAudioSource.loop = true;
+            warehouseBGMAudioSource.spatialBlend = 0f; // Force 2D stereo so background audio is heard clearly everywhere
+            if (warehouseBGMAudioSource.volume < 0.4f) warehouseBGMAudioSource.volume = 0.5f;
             warehouseBGMAudioSource.Play();
         }
 

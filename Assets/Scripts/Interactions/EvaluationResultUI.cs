@@ -87,6 +87,8 @@ public class EvaluationResultUI : MonoBehaviour
         // Play completion/time finished sound effect
         if (resultAudioSource != null && completionSoundClip != null)
         {
+            resultAudioSource.spatialBlend = 0f; // 2D stereo directly to headset
+            resultAudioSource.volume = 1f;
             resultAudioSource.PlayOneShot(completionSoundClip);
         }
 

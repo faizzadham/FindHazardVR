@@ -20,16 +20,22 @@ public class AmbientAudioController : MonoBehaviour
         if (audioSource != null)
         {
             audioSource.loop = true; // Ensure background ambience continuously loops without stopping
-            audioSource.volume = 0f; // Start silent for fade-in
+            audioSource.spatialBlend = 0f; // Force 2D stereo so background audio is not attenuated by 3D distance
+            if (targetVolume <= 0f) targetVolume = 0.35f;
+            audioSource.volume = targetVolume; // Start with audible volume immediately
         }
     }
 
     private void Start()
     {
-        if (audioSource.clip != null)
+        if (audioSource != null)
         {
-            if (!audioSource.isPlaying) audioSource.Play();
-            fadeRoutine = StartCoroutine(FadeVolume(0f, targetVolume, fadeInDuration));
+            audioSource.spatialBlend = 0f;
+            audioSource.volume = targetVolume;
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
         }
     }
 
